@@ -5,11 +5,12 @@ I have built in This project a music generator in this repository using RNNs, LS
 ## Table of Contents
 - [Introduction](#introduction)
 - [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
+- [Re-Use](#re-use)
+- [Dataset](#dataset)
+- [Training](#training)
+- [Inference](#inference)
+- [Contact Me](#contact-me)
+- [About Me](#about-me)
 
 ## Introduction
 
@@ -29,7 +30,7 @@ We have used these neural network architectures to learn more about them and com
 
 
 
-## Reuse
+## Re-Use
 
 To reuse these notebooks, you can follow these steps or tips:
 
@@ -37,6 +38,10 @@ To reuse these notebooks, you can follow these steps or tips:
 2. Replace the dataset with your own, whether it's voices, text, or any sequential problem.
 3. Perform hyperparameter tuning to improve performance further.
 4. If you make use of these notebooks, don't forget to give us a mention! 😁😂
+
+
+
+
 
 ## Dataset
 
@@ -59,7 +64,8 @@ This dataset serves as the foundation for the Music Generator with ABC Annotatio
 
 
 
-## Training Results
+
+## Training
 
 Below are the training results for the different models we utilized:
 
@@ -87,7 +93,7 @@ Below are the training results for the different models we utilized:
 
 
 
-## Inference Examples
+## Inference
 
 Below are video examples showcasing the inference results of the different models we utilized:
 
@@ -110,7 +116,7 @@ https://github.com/benisalla/music_generator_with_3_nlp_algorithms/assets/894056
 
 
 
-## Contact Us
+## Contact Me
 Feel free to reach out to me:
 - Email ([ismailbenalla52@gmail.com](mailto:ismailbenalla52@gmail.com))
 - linkedin: ([Ben alla Ismail](https://www.linkedin.com/in/ismail-ben-alla-bai/))
