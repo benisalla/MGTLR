@@ -65,21 +65,21 @@ Below are the training results for the different models we utilized:
 
    - **Recurrent Neural Networks (RNNs):**
 
-   <center>
-      <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/89405673/272082340-26f21583-467f-4875-a862-cc9beff48571.png" height="100" width="200"/>
-   </center>
+   <p align="center">
+      <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/89405673/272082340-26f21583-467f-4875-a862-cc9beff48571.png" height="300" width="500"/>
+   </p>
 
    - **Long Short-Term Memory Networks (LSTMs):**
 
-   <center>
-      <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/89405673/272082328-72f33452-4e3b-41fc-836c-837d62e9fcc7.png" height="100" width="200"/>
-   </center>
+   <p align="center">
+      <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/89405673/272082328-72f33452-4e3b-41fc-836c-837d62e9fcc7.png" height="300" width="500"/>
+   </p>
 
    - **Beloved Model 😍 (Transformers):**
 
-   <center>
-      <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/89405673/272082342-4e32381d-c90f-4a71-b740-6c20cd072ed9.png" height="100" width="200"/>
-   </center>
+   <p align="center">
+      <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/89405673/272082342-4e32381d-c90f-4a71-b740-6c20cd072ed9.png" height="300" width="500"/>
+   </p>
 
 
 
