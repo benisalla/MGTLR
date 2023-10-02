@@ -93,15 +93,11 @@ Below are video examples showcasing the inference results of the different model
 
 ### Recurrent Neural Networks (RNNs)
 
-https://github.com/benisalla/Calculator/assets/89405673/0c75e0a5-0f15-4657-9c70-24d0f501eec6
-https://github.com/benisalla/Calculator/assets/89405673/4ac87c3f-72d6-4bf5-a3e7-8ab0547ac5d9
-
+https://github.com/benisalla/music_generator_with_3_nlp_algorithms/assets/89405673/80814830-b33c-44e9-83fd-74bb0e38f1bb
 
 ### Long Short-Term Memory Networks (LSTMs)
 
-<p align="center">
-   [Add Video Link for LSTM Inference]
-</p>
+https://github.com/benisalla/music_generator_with_3_nlp_algorithms/assets/89405673/c1aa6325-655b-40d4-8923-1fe77a16415e
 
 ### Beloved Model 😍 (Transformers)
 
