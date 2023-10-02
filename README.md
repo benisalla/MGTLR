@@ -110,14 +110,42 @@ https://github.com/benisalla/music_generator_with_3_nlp_algorithms/assets/894056
 
 
 
-## Contributing
+## Contact Us
+Feel free to reach out to me:
+- Email ([ismailbenalla52@gmail.com](mailto:ismailbenalla52@gmail.com))
+- linkedin: ([Ben alla Ismail](https://www.linkedin.com/in/ismail-ben-alla-bai/))
 
-We welcome contributions to this project. If you would like to contribute, please follow our [Contribution Guidelines](CONTRIBUTING.md).
 
-## License
 
-This project is licensed under the [Your License Name] - see the [LICENSE](LICENSE) file for details.
 
-## Acknowledgments
+## About Me
 
-We would like to acknowledge the following for their contributions and inspiration:
+🎓 I'm Ismail Ben Alla, and I have a deep passion for neural networks 😍. My mission is to assist neural networks in unraveling the mysteries of our universe.</br>
+⛵ I'm an enthusiast when it comes to AI, Deep Learning, and Machine Learning algorithms.</br>
+✅ I'm an optimist and a dedicated hard worker, constantly striving to push the boundaries of what's possible.</br>
+🌱 I'm committed to continuously learning and staying updated with advanced computer science technologies.</br>
+😄 I absolutely love what I do, and I'm excited about the endless possibilities in the world of AI and machine learning!</br>
+
+Let's connect and explore the fascinating world of artificial intelligence together! 🤖🌟
+
+
+<div align="center">
+  <a href="https://twitter.com/ismail_ben_alla" target="blank">
+    <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="ismail_ben_alla" height="30" width="40" />
+  </a>
+  <a href="https://linkedin.com/in/ismail-ben-alla-7144b5221/" target="blank">
+    <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="ismail-ben-alla-7144b5221/" height="30" width="40" />
+  </a>
+  <a href="https://instagram.com/ismail_ben_alla" target="blank">
+    <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="ismail_ben_alla" height="30" width="40" />
+  </a>
+</div>
+
+
+
+
+
+<div align="center">
+  <h4>Enjoy Your own songs</h4>
+  <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/89405673/272088367-4d5293e6-aa45-4237-a0d6-b8613a79aae5.gif" width="500" height="300"/>
+</div>
