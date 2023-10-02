@@ -1,11 +1,6 @@
 # music_generator_with_3_nlp_algorithms
-I have built a music generator in this repository using RNNs, LSTMs, and transformers in order to learn more about their structure and performance.
+I have built in This project a music generator in this repository using RNNs, LSTMs, and transformers in order to learn more about their structure and performance.
 
-
-
-# Music Generator with ABC Annotations
-
-This project is a music generator that uses RNN, LSTM, and transformers to generate music based on ABC annotations.
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -18,49 +13,69 @@ This project is a music generator that uses RNN, LSTM, and transformers to gener
 
 ## Introduction
 
-The Music Generator with ABC Annotations is a project designed to create music using the ABC notation format. It leverages the power of Recurrent Neural Networks (RNN), Long Short-Term Memory networks (LSTM), and transformers to generate musical compositions.
+The Music Generator with ABC Annotations is a project designed to create music using the ABC notation format. It leverages the power of Recurrent Neural Networks (RNN), Long Short-Term Memory networks (LSTM), and transformers to generate musical compositions. 
+
+We have used these neural network architectures to learn more about them and compare their performance and usage in the context of music generation.
+
+
+
 
 ## Features
 
-- Generate music in the ABC notation format.
-- Utilize RNN, LSTM, and transformers for music composition.
-- Customizable parameters for music generation.
+- Music generation in the ABC notation format.
+- Utilization of RNN, LSTM, and transformers for music composition.
+- Application of the same approach used for processing ABC annotations to solve various NLP problems.
 
-## Installation
 
-To get started with the Music Generator, follow these installation steps:
 
-1. Clone this repository to your local machine:
 
-   ```bash
-   $ git clone https://github.com/yourusername/your-repo.git
+## Reuse
+
+To reuse these notebooks, you can follow these steps or tips:
+
+1. Clone this repository or fork it to your own repository.
+2. Replace the dataset with your own, whether it's voices, text, or any sequential problem.
+3. Perform hyperparameter tuning to improve performance further.
+4. If you make use of these notebooks, don't forget to give us a mention! 😁😂
+
+## Dataset
+
+This dataset serves as the foundation for the Music Generator with ABC Annotations project, containing a rich collection of musical compositions in ABC notation. Harnessing the might of RNN, LSTM, and transformers, it fuels the creation of entirely new musical masterpieces through advanced model training and generation techniques.
+
+   our data set contains : 
+   - train dataset
+   - test dataset
+   - validation dataset
+   each one contains songs or samples with this format :
+   ```
+   X:1
+   L:1/8
+   M:4/4
+   K:Emin
+   |: E2 EF E2 EF | DEFG AFDF | E2 EF E2 B2 |1 efe^d e2 e2 :|2 efe^d e3 B |: e2 ef g2 fe |
+   defg afdf |1 e2 ef g2 fe | efe^d e3 B :|2 g2 bg f2 af | efe^d e2 e2 ||
    ```
 
-2. Navigate to the project directory:
 
-   ```bash
-   $ cd your-repo
-   ```
+Certainly, here's a more structured and clear version of the "Training" section in your README:
 
-3. Install the necessary dependencies:
+## Training Results
 
-   ```bash
-   $ pip install -r requirements.txt
-   ```
+Below are the training results for the different models we utilized:
 
-## Usage
+   - **Recurrent Neural Networks (RNNs):**
 
-To generate music using the Music Generator, you can use the following code snippet as an example:
+[Insert training results and details for RNNs here]
 
-```python
-# Example code for music generation
-import music_generator
+   - **Long Short-Term Memory Networks (LSTMs):**
 
-music = music_generator.generate_music()
-print(music)
-```
+[Insert training results and details for LSTMs here]
 
-You can customize the parameters and settings according to your preferences.
+   - **Beloved Model 😍 (Transformers):**
+
+[Insert training results and details for Transformers here]
+
+
 
 ## Contributing
 
