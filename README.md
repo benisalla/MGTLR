@@ -57,7 +57,7 @@ This dataset serves as the foundation for the Music Generator with ABC Annotatio
    ```
 
 
-Certainly, here's a more structured and clear version of the "Training" section in your README:
+
 
 ## Training Results
 
@@ -80,6 +80,40 @@ Below are the training results for the different models we utilized:
    <p align="center">
       <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/89405673/272082342-4e32381d-c90f-4a71-b740-6c20cd072ed9.png" height="300" width="500"/>
    </p>
+
+
+
+
+
+
+
+## Inference Examples
+
+Below are video examples showcasing the inference results of the different models we utilized:
+
+### Recurrent Neural Networks (RNNs)
+
+<p align="center">
+   <video controls width="500" height="300">
+       <source src="https://github-production-user-asset-6210df.s3.amazonaws.com/89405673/272085172-0c75e0a5-0f15-4657-9c70-24d0f501eec6.mp4" type="video/mp4">
+       Your browser does not support the video tag.
+   </video>
+</p>
+
+### Long Short-Term Memory Networks (LSTMs)
+
+<p align="center">
+   [Add Video Link for LSTM Inference]
+</p>
+
+### Beloved Model 😍 (Transformers)
+
+<p align="center">
+   [Add Video Link for Transformer Inference]
+</p>
+
+
+
 
 
 
