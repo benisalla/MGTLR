@@ -94,11 +94,13 @@ Below are video examples showcasing the inference results of the different model
 ### Recurrent Neural Networks (RNNs)
 
 <p align="center">
-   <video controls width="500" height="300">
-       <source src="https://github-production-user-asset-6210df.s3.amazonaws.com/89405673/272085172-0c75e0a5-0f15-4657-9c70-24d0f501eec6.mp4" type="video/mp4">
-       Your browser does not support the video tag.
-   </video>
+   <a href="https://github.com/yourusername/your-repo/blob/main/videos/your-video.mp4">
+      <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/89405673/272085172-0c75e0a5-0f15-4657-9c70-24d0f501eec6.mp4" alt="Video Thumbnail" width="500" height="300">
+   </a>
+   <br>
+   <em>Click on the image to watch the video</em>
 </p>
+
 
 ### Long Short-Term Memory Networks (LSTMs)
 
