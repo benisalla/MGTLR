@@ -97,11 +97,11 @@ Below are the training results for the different models we utilized:
 
 Below are video examples showcasing the inference results of the different models we utilized:
 
-### Recurrent Neural Networks (RNNs)
+### Long Short-Term Memory Networks (LSTMs)
 
 https://github.com/benisalla/music_generator_with_3_nlp_algorithms/assets/89405673/80814830-b33c-44e9-83fd-74bb0e38f1bb
 
-### Long Short-Term Memory Networks (LSTMs)
+### Recurrent Neural Networks (RNNs)
 
 https://github.com/benisalla/music_generator_with_3_nlp_algorithms/assets/89405673/c1aa6325-655b-40d4-8923-1fe77a16415e
 
