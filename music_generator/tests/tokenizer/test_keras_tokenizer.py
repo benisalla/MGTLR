@@ -1,13 +1,19 @@
-from music_generator.tokenizing import KerasTokenizer
+from music_generator.tokenizing.tokenizer.KerasTokenizer import KerasTokenizer
 
 
-texts = [
-    "Data Science: Data Manipulation and Cleaning, Data Visualization, Statistical Analysis + EDA, Feature engineering.",
-    "Built a RAG system for Moroccan law documents. Technologies: Llama-Index, FastAPI, React/Next.js, TypeScript, Python.",
-    "Computer science engineering at ENSA, Fes, Morocco from 2021 to now. Integrated Preparatory Classes from 2019 to 2021."
-]
+load_path = "./music_generator/src/tokenizer/keras_tokenizer_test.json"
 tokenizer = KerasTokenizer()
-tokenizer.fit(texts)
+tokenizer.load(load_path)
+
+# Test with some text
+sample_texts = ["Hello world!", "Keras is fun for natural language processing."]
+sequences = tokenizer.texts_to_sequences(sample_texts)
+
+# Print tokenizer properties and test results
+print("Vocabulary Size:", tokenizer.get_vocab_size())
+print("Word Index (partial):", dict(list(tokenizer.get_word_index().items())[:10]))  # Print first 10 items for brevity
+print("Index to Word Mapping (partial):", dict(list(tokenizer.get_index_word().items())[:10]))  # Print first 10 mappings
+print("Sequences for Sample Texts:", sequences)
 
 sequences = tokenizer.texts_to_sequences([
     "Data Science: Data Visualization",
