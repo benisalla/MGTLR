@@ -1,138 +1,384 @@
-# music_generator_with_3_nlp_algorithms
-I have built in This project a music generator in this repository using RNNs, LSTMs, and transformers in order to learn more about their structure and performance.
+<div align="center">
+  <img src="https://github.com/benisalla/Tiny-ViT-Transformer-from-scratch/assets/89405673/035598be-ea1c-4501-947a-ff51524e78ef" width="200" height="200"/>
+  <h1>TINY-ViT: Vision Transformer from Scratch</h1>
+  <p>Implementing a Vision Transformer model from the scratch.</p>
+</div>
 
 
-## Table of Contents
-- [Introduction](#introduction)
+
+
+
+
+
+---
+
+
+
+
+
+
+
+## Table of Contents 📘
+- [About The Project](#about-the-project)
+- [Built With](#built-with)
 - [Features](#features)
-- [Re-Use](#re-use)
-- [Dataset](#dataset)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Installation](#installation)
+- [Usage](#usage)
 - [Training](#training)
-- [Inference](#inference)
-- [Contact Me](#contact-me)
+- [Fine-Tuning](#fine-tuning)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [Contributors](#contributors)
+- [Authors](#authors)
+- [Acknowledgements](#acknowledgements)
+- [License](#license)
 - [About Me](#about-me)
 
-## Introduction
 
-The Music Generator with ABC Annotations is a project designed to create music using the ABC notation format. It leverages the power of Recurrent Neural Networks (RNN), Long Short-Term Memory networks (LSTM), and transformers to generate musical compositions. 
 
-We have used these neural network architectures to learn more about them and compare their performance and usage in the context of music generation.
+
+---
+
+
+
+## About The Project
+
+<div align="center">
+  <img src="https://github.com/benisalla/Tiny-ViT-Transformer-from-scratch/assets/89405673/4935a979-a8e8-40f0-8ffb-e621025aac2f" width="600" height="300"/>
+</div>
+
+TINY-ViT offers a minimalist, yet complete implementation of the Vision Transformer (ViT) architecture for computer vision tasks. This project aims to provide a clear and structured approach to building Vision Transformers, making it accessible for educational purposes and practical applications alike.
+
+
+
+
+
+---
 
 
 
 
 ## Features
 
-- Music generation in the ABC notation format.
-- Utilization of RNN, LSTM, and transformers for music composition.
-- Application of the same approach used for processing ABC annotations to solve various NLP problems.
+- **Modular Design**: Clear separation of components like data processing, model architecture, and training routines.
+- **Customizable**: Easy to adapt the architecture and data pipeline for various datasets and applications.
+- **Poetry Dependency Management**: Utilizes Poetry for simple and reliable package management.
+- **Advanced Embedding Techniques**: Implements three distinct techniques for image embedding in Vision Transformers:
+  - **ViTConv2dEmbedding**: Utilizes a Conv2D layer to transform input images into a sequence of flattened 2D patches, with a learnable class token appended.
+  ```python
+  class ViTConv2dEmbedding(nn.Module):
+  ```
+  - **ViTLNEmbedding**: Applies layer normalization to flattened input patches before projecting them into an embedding space, enhancing stability and performance.
+  ```python
+  class ViTLNEmbedding(nn.Module):
+  ``` 
+  - **ViTPyCon2DEmbedding**: Offers a unique tensor reshaping strategy to transform input images into a sequence of embedded patches, also including a learnable class token.
+  ```python
+  class ViTPyCon2DEmbedding(nn.Module):
+  ```
+    
+- **Custom Activation Function**: Incorporates the **ViTGELUActFun** class, which implements the Gaussian Error Linear Unit (GELU), providing smoother gating behavior than traditional nonlinearities like ReLU.
+  ```python
+  class ViTGELUActFun(nn.Module):
+  ```
 
 
 
 
-## Re-Use
-
-To reuse these notebooks, you can follow these steps or tips:
-
-1. Clone this repository or fork it to your own repository.
-2. Replace the dataset with your own, whether it's voices, text, or any sequential problem.
-3. Perform hyperparameter tuning to improve performance further.
-4. If you make use of these notebooks, don't forget to give us a mention! 😁😂
 
 
 
 
 
-## Dataset
 
-This dataset serves as the foundation for the Music Generator with ABC Annotations project, containing a rich collection of musical compositions in ABC notation. Harnessing the might of RNN, LSTM, and transformers, it fuels the creation of entirely new musical masterpieces through advanced model training and generation techniques.
 
-   our data set contains : 
-   - train dataset
-   - test dataset
-   - validation dataset
-   each one contains songs or samples with this format :
+
+
+---
+
+
+
+
+
+## Project Structure
+```
+TINY-VIT-TRANSFORMER-FROM-SCRATCH
+│
+├── dataset                   # Dataset directory
+├── tests                     # Test scripts
+├── tiny_vit_transformer_from_scratch
+│   ├── core                  # Core configurations and caching
+│   ├── data                  # Data processing modules
+│   └── model                 # Transformer model components
+├── train.py                  # Script to train the model
+├── finetune.py               # Script for fine-tuning the model
+├── README.md                 # Project README file
+├── poetry.lock               # Poetry lock file for consistent builds
+└── pyproject.toml            # Poetry project file with dependency descriptions
+```
+
+
+
+
+
+---
+
+
+
+
+
+
+### Built With
+This section should list any major frameworks/libraries used to bootstrap your project:
+- [MyBest framework ever: PyTorch](https://pytorch.org/)
+
+---
+
+
+
+
+
+## Getting Started
+
+To get a local copy up and running follow these simple steps.
+
+
+
+
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/benisalla/tiny-vit-transformer-from-scratch.git
    ```
-   X:1
-   L:1/8
-   M:4/4
-   K:Emin
-   |: E2 EF E2 EF | DEFG AFDF | E2 EF E2 B2 |1 efe^d e2 e2 :|2 efe^d e3 B |: e2 ef g2 fe |
-   defg afdf |1 e2 ef g2 fe | efe^d e3 B :|2 g2 bg f2 af | efe^d e2 e2 ||
+2. Install Poetry packages
+   ```sh
+   poetry install
    ```
 
 
 
 
 
-## Training
-
-Below are the training results for the different models we utilized:
-
-   - **Recurrent Neural Networks (RNNs):**
-
-   <p align="center">
-      <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/89405673/272082340-26f21583-467f-4875-a862-cc9beff48571.png" height="300" width="500"/>
-   </p>
-
-   - **Long Short-Term Memory Networks (LSTMs):**
-
-   <p align="center">
-      <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/89405673/272082328-72f33452-4e3b-41fc-836c-837d62e9fcc7.png" height="300" width="500"/>
-   </p>
-
-   - **Beloved Model 😍 (Transformers):**
-
-   <p align="center">
-      <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/89405673/272082342-4e32381d-c90f-4a71-b740-6c20cd072ed9.png" height="300" width="500"/>
-   </p>
+---
 
 
 
 
 
+## Usage
+
+how you can use this code
+
+### Training
+
+To train the model using the default configuration:
+
+```bash
+poetry run python train.py
+```
 
 
-## Inference
 
-Below are video examples showcasing the inference results of the different models we utilized:
 
-### Long Short-Term Memory Networks (LSTMs)
 
-https://github.com/benisalla/music_generator_with_3_nlp_algorithms/assets/89405673/80814830-b33c-44e9-83fd-74bb0e38f1bb
+### Fine-Tuning
 
-### Recurrent Neural Networks (RNNs)
+To fine-tune a pre-trained model:
 
-https://github.com/benisalla/music_generator_with_3_nlp_algorithms/assets/89405673/c1aa6325-655b-40d4-8923-1fe77a16415e
-
-### Beloved Model 😍 (Transformers)
-
-<p align="center">
-   [Add Video Link for Transformer Inference]
-</p>
+```bash
+poetry run python finetune.py
+```
 
 
 
 
 
 
-## Contact Me
-Feel free to reach out to me:
-- Email ([ismailbenalla52@gmail.com](mailto:ismailbenalla52@gmail.com))
-- linkedin: ([Ben alla Ismail](https://www.linkedin.com/in/ismail-ben-alla-bai/))
+---
+
+
+
+
+
+## Model Performance
+
+The tiny-vit model was evaluated on a comprehensive set of test images to gauge its accuracy and performance. Here are the results:
+
+- **Accuracy on test images**: 81.60%
+
+These results demonstrate the effectiveness of the tiny-vit model in handling complex image recognition tasks. We continuously seek to improve the model and update the metrics as new test results become available.
+
+![image](https://github.com/benisalla/Tiny-ViT-Transformer-from-scratch/assets/89405673/62531c3f-6684-4000-a151-acee6a399ab3)
+
+![image](https://github.com/benisalla/Tiny-ViT-Transformer-from-scratch/assets/89405673/7aafbd0a-f48b-46dd-9caf-d99f42e063e3)
+
+
+
+---
+
+
+
+
+
+## Roadmap
+
+See the [open issues](https://github.com/benisalla/tiny-vit-transformer-from-scratch/issues) for a list of proposed features (and known issues).
+
+
+
+
+
+---
+
+
+
+
+
+## Contributing 
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+Contributions are welcome! For major changes, please open an issue first to discuss what you would like to change.
+
+
+
+
+---
+
+
+
+
+
+
+
+## Contributors
+
+- **Asmae El-Ghezzaz** - Data Scientist/ML
+  - [GitHub](https://github.com/aelghezzaz)
+  - Contributions: Provided expertise in machine learning and data science methodologies.
+
+- **Idriss El Houari** - Data Scientist
+  - [GitHub](https://github.com/idrisselhouari)
+  - [Kaggle](https://www.kaggle.com/idrisselhouari)
+  - Contributions: Curated the plant disease dataset and developed the initial analysis notebook.
+  
+- **Farheen Akhter** - Graduate Student at California State University
+  - [GitHub](https://github.com/FarheenAkhter786)
+  - [Kaggle](https://www.kaggle.com/feenuakhter)
+  - Contributions: Worked on improving crop yield and pest/disease detection through data analytics. Provided dataset and analytical insights on local farms in Ghana.
+
+- **Aicha Dessa** - Data Scientist Intern
+  - [GitHub](https://github.com/aichadessa06)
+  - [Kaggle](https://www.kaggle.com/aichadessa)
+  - Contributions: Analyzed plant disease recognition data and contributed to model training and testing processes.
+  
+- **Zeroual Salma** - Student at Agronomic and Veterinary Institute Hassan II
+  - [GitHub](https://github.com/salmazl)
+  - Contributions: Focused on plant pathology and contributed to dataset analysis and insights into Botrytis disease.
+  
+- **El Fakir Chaimae** - Master's Student in Artificial Intelligence
+  - [GitHub](https://github.com/chaimaeelfakir)
+  - Contributions: Provided datasets on pathogen detection and collaborated on developing AI models for disease prediction.
+  
+- **Laghbissi Salma** - Master's Student in Software Engineering for Cloud Computing
+  - [GitHub](https://github.com/salma-laghbissi)
+  - Contributions: Researched on plant pathologies and contributed significantly to the dataset understanding and processing.
+
+
+
+---
+
+
+
+
+
+
+
+## Authors
+
+- **Ismail Ben Alla (Me  😉)** - [View My GitHub Profile](https://github.com/benisalla)
+- **Asmae El-Ghezzaz (a friend of mine)** - deserves a special thanks for her help and advices
+
+
+
+
+---
+
+
+
+
+
+
+
+## Acknowledgements
+
+This project owes its success to the invaluable support and resources provided by several individuals and organizations. A heartfelt thank you to:
+
+- [**Asmae El-Ghezzaz**](https://www.linkedin.com/in/asmae-el-ghezzaz) - For inviting me to be a member of Moroccan Data Scientists (MDS), where I had the opportunity to develop this project.
+- [**Moroccan Data Scientists (MDS)**](https://www.linkedin.com/company/moroccands) - Although I am no longer a member, I hold great admiration for the community and wish it continued success.
+- **Pests and Vigitebles Diseased Detection Team in MDS** - Aicha, hiba, idriss, farheen, asmae, ...
+- [**PyTorch**](https://pytorch.org/) - For the powerful and flexible deep learning platform that has made implementing models a smoother process.
+- [**Kaggle**](https://www.kaggle.com/) - For providing the datasets used in training our models and hosting competitions that inspire our approaches.
+- [**Google Colab**](https://colab.research.google.com/) - For the computational resources that have been instrumental in training and testing our models efficiently.
+
+
+
+
+
+
+---
+
+
+
+
+
+
+
+## License
+
+This project is made available under **fair use guidelines**. While there is no formal license associated with the repository, users are encouraged to credit the source if they utilize or adapt the code in their work. This approach promotes ethical practices and contributions to the open-source community. For citation purposes, please use the following:
+
+```bibtex
+@misc{tiny_vit_2024,
+  title={TINY-ViT: Vision Transformer from Scratch},
+  author={Ben Alla Ismail},
+  year={2024},
+  url={https://github.com/benisalla/tiny-vit-transformer-from-scratch}
+}
+```
+
+
+
+
+
+---
+
 
 
 
 
 ## About Me
 
-🎓 I'm Ismail Ben Alla, and I have a deep passion for neural networks 😍. My mission is to assist neural networks in unraveling the mysteries of our universe.</br>
-⛵ I'm an enthusiast when it comes to AI, Deep Learning, and Machine Learning algorithms.</br>
-✅ I'm an optimist and a dedicated hard worker, constantly striving to push the boundaries of what's possible.</br>
-🌱 I'm committed to continuously learning and staying updated with advanced computer science technologies.</br>
-😄 I absolutely love what I do, and I'm excited about the endless possibilities in the world of AI and machine learning!</br>
+🎓 **Ismail Ben Alla** - Neural Network Enthusiast
 
-Let's connect and explore the fascinating world of artificial intelligence together! 🤖🌟
+I am deeply passionate about exploring artificial intelligence and its potential to solve complex problems and unravel the mysteries of our universe. My academic and professional journey is characterized by a commitment to learning and innovation in AI, deep learning, and machine learning.
+
+### What Drives Me
+- **Passion for AI**: Eager to push the boundaries of technology and discover new possibilities.
+- **Continuous Learning**: Committed to staying informed and skilled in the latest advancements.
+- **Optimism and Dedication**: Motivated by the challenges and opportunities that the future of AI holds.
+
+I thoroughly enjoy what I do and am excited about the future of AI and machine learning. Let's connect and explore the endless possibilities of artificial intelligence together!
 
 
 <div align="center">
@@ -149,9 +395,10 @@ Let's connect and explore the fascinating world of artificial intelligence toget
 
 
 
+---
 
 
 <div align="center">
-  <h4>Enjoy Your own songs</h4>
-  <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/89405673/272088367-4d5293e6-aa45-4237-a0d6-b8613a79aae5.gif" width="500" height="300"/>
+  <h4>Get ready to see pixels transform into insights 🌟🔍✨</h4>
+  <img src="https://github.com/benisalla/Tiny-ViT-Transformer-from-scratch/assets/89405673/087e0049-d113-4df6-8fb3-183ebc4f85e1" width="500" height="300"/>
 </div>
