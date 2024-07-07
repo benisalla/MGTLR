@@ -21,7 +21,7 @@ tokenizer = MGTokenizer()
 vocab_size = 856
 
 print("training the tokenizer just started ...")
-tokenizer.train(val_text, vocab_size=vocab_size, verbose=True)
+tokenizer.train(train_text, vocab_size=vocab_size, verbose=True)
 
 # Update and register special tokens
 special_tokens = {
