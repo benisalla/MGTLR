@@ -6,7 +6,7 @@ authors = ["Ben alla ismail <ismailbenalla@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.11"
 torch = "^2.3.0"
 matplotlib = "^3.8.4"
 ipython = "^8.24.0"
@@ -17,6 +17,7 @@ regex = "^2024.5.15"
 numpy = "<2.0.0"
 music21 = "^9.1.0"
 midi2audio = "^0.1.1"
+pydub = "^0.25.1"
 
 [build-system]
 requires = ["poetry-core"]

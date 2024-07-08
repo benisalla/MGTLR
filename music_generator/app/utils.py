@@ -1,9 +1,12 @@
 import base64
+import json
 import shutil
 import regex as re
 import torch
 import os
 from datetime import datetime
+from midi2audio import FluidSynth
+from pydub import AudioSegment
 from music21 import converter
 from music_generator.model.MGTransformer import MGTransformer
 from music_generator.tokenizing.tokenizer.MGTokenizer import MGTokenizer
@@ -31,24 +34,37 @@ def load_tokenizer(tokenizer_path):
     tokenizer.load(tokenizer_path)
     return tokenizer
 
-def generate_songs(abc_string, abc_dir):
+def generate_songs(abc_string, abc_dir, json_file_path):
     pattern = re.compile(r'<SOS>(.*?)<EOS>', re.DOTALL)
     matches = pattern.findall(abc_string)
     abc_strings = [match.strip() for match in matches if match.strip()]
 
     os.makedirs(abc_dir, exist_ok=True)
     is_exist = False
+    song_details = load_song_details(json_file_path)
     
     for i, match in enumerate(abc_strings):
         curr_dtime = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
         try:
             song = converter.parse(match, format='abc')
-            midi_path = os.path.join(abc_dir, f'abs_song_{curr_dtime}_{i + 1}.mid')
+            midi_file_name = f'abs_song_{curr_dtime}_{i + 1}.mid'
+            midi_path = os.path.join(abc_dir, midi_file_name)
             song.write('midi', fp=midi_path)
             is_exist = True
+
+            wav_file = convert_midi_to_wav(midi_path)
+            mp3_file = convert_wav_to_mp3(wav_file)
+            os.remove(midi_path)  
+
+            song_details[midi_file_name] = {
+                "abc": match,
+                "mp3_path": mp3_file
+            }
+
         except Exception as e:
             pass
-    
+
+    save_song_details(song_details, json_file_path)
     return is_exist
 
 def generate_string(sos_token, model, tokenizer, device, max_new_tokens=512, temperature=1.0, top_k=None):
@@ -70,3 +86,31 @@ def clear_directory(directory):
                     shutil.rmtree(file_path)
             except Exception as e:
                 print(f'Failed to delete {file_path}. Reason: {e}')
+
+def save_abc_file(abc_content, file_path):
+    with open(file_path, 'w') as abc_file:
+        abc_file.write(abc_content)
+
+def convert_midi_to_wav(mid_file):
+    fs = FluidSynth()
+    wav_file = mid_file.replace('.mid', '.wav')
+    fs.midi_to_audio(mid_file, wav_file)
+    return wav_file
+
+def convert_wav_to_mp3(wav_file):
+    mp3_file = wav_file.replace('.wav', '.mp3')
+    audio = AudioSegment.from_wav(wav_file)
+    audio.export(mp3_file, format='mp3')
+    os.remove(wav_file)
+    return mp3_file
+
+def save_song_details(song_details, json_file_path):
+    os.makedirs(os.path.dirname(json_file_path), exist_ok=True)
+    with open(json_file_path, 'w') as json_file:
+        json.dump(song_details, json_file, indent=4)
+
+def load_song_details(json_file_path):
+    if os.path.exists(json_file_path):
+        with open(json_file_path, 'r') as json_file:
+            return json.load(json_file)
+    return {}
