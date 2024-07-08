@@ -1,6 +1,18 @@
 {
-    "abs_song_2024-07-08_16-37-58_1.mid": {
-        "abc": "X:101266\nL:1/8\nM:3/4\nK:Ador\n (A/B/) | A2 D2 (G/A/) | A2 D2 (FG/E/) | A2 (G/A/) (d/d/) | A2 D2( (EG)d) | A2 (FE) E2 :|",
-        "mp3_path": "generated_songs/abs_song_2024-07-08_16-37-58_1.mp3"
+    "abs_song_2024-07-08_17-56-43_1.mid": {
+        "abc": "X:1\nL:1/8\nM:2/2\nK:D\n DFAE DEFG | EFAE FEFE | DFAE DEFD | DFAE EDCE | DCBEA ADEG | DFAE FECE :|: DFFB AFDF | \n DFAE EDDE | DF,EG ADEG | FAEA Adde | fedf f2 e :|",
+        "mp3_path": "./music_generator/app/abc_dir/abs_song_2024-07-08_17-56-43_1.mp3"
+    },
+    "abs_song_2024-07-08_17-56-47_2.mid": {
+        "abc": "X:57258\nL:1/8\nM:6/8\nK:G\n|: B2 d BGE | ABc dfd | BcA c2 B | dEE D2 g | agf g2 B | A2 c B2 A | \n dEE E2 c | ded BAG |1 c2 d\"^D.C.\" A2 :|2 e2 d A2 |]",
+        "mp3_path": "./music_generator/app/abc_dir/abs_song_2024-07-08_17-56-47_2.mp3"
+    },
+    "abs_song_2024-07-08_17-56-49_3.mid": {
+        "abc": "X:08918\nL:1/8\nQ:1/4=160\nM:2/2\nK:D\n fg | a(gf/f/) d>TA _A(c3 A2) | d>G d>F (AG) (DF) | G>F d>F (dB) | A>G AG AF | D>F d>F (3cde (d>cB>A | \n G>F d>F (3GGG (F/B/c/d) | A>F (3FEF Dgf | (d>dc>)A>c (3ddc | d>ea>f e/d/c/B/A/ | d>BFF<d :: c | \n d2 A(ccB) | defg | f>fg^ga | cee>G | d>ed>c | d2 e2 :|",
+        "mp3_path": "./music_generator/app/abc_dir/abs_song_2024-07-08_17-56-49_3.mp3"
+    },
+    "abs_song_2024-07-08_17-56-52_4.mid": {
+        "abc": "X:111010\nL:1/4\nM:4/4\nK:G\n B G B2 | c2 c2 B2 | c2 c2 B2 | G3 E G2 | G G2 G2 | F2 D2 D2 | G3 C D2 | D2 G2 F2 | G6 | c2 c2 A2 | c6 | d2 B2 g2 | f2 g c2 f | B6 | \n ecA afd | A6 | d2 f2 e | d2 e dF | AFD D2 f | e6 || BAG GAB | cBA G[FF,]f | edc BGE\"^A\" deA | AGA FDE | \n B2 F GFE | AGE FED :|",
+        "mp3_path": "./music_generator/app/abc_dir/abs_song_2024-07-08_17-56-52_4.mp3"
     }
 }
