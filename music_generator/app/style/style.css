@@ -1,4 +1,3 @@
-/* styles.css */
 .stApp {
     background-image: url("data:image/png;base64,{encoded_image}");
     background-size: cover;
@@ -6,37 +5,39 @@
 }
 
 .title-container {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.8);
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 15px;
     text-align: center;
     margin-bottom: 20px;
 }
 
-.upload-container {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 10px;
+
+.input-section {
+    background: linear-gradient(135deg, #0009, #0009);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 3px 3px 32px rgba(255, 255, 255, 0.93);
     text-align: center;
-    margin-top: 20px;
+    margin: 30px auto;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
 }
+
+.input-instructions {
+    font-size: 22px;
+    font-weight: 501;
+    padding: 0;
+    margin: 0;
+}
+
 
 .title {
     color: white;
     font-size: 2.5em;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
 }
 
-.instructions {
-    color: black;
-    font-size: 1.2em;
-}
-
-.classes {
-    color: black;
-    font-size: 1em;
-    margin-top: 10px;
-}
 
 .sidebar-title {
     font-size: 1.5em;
@@ -51,25 +52,45 @@
     margin-bottom: 10px;
 }
 
-.image-container {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.image-container img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.prediction-result {
-    background: rgba(0, 0, 0, 0.7);
+.audio-container {
+    background: rgba(0, 0, 0, 0.8);
     color: white;
     padding: 10px;
     border-radius: 10px;
-    margin-top: 20px;
+    margin-top: 10px;
     text-align: center;
     font-size: 1.2em;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.download-link {
+    color: #007bff;          /* Blue color for the link, indicating interactivity */
+    text-decoration: none;   /* Removes the underline to clean up the appearance */
+    padding: 8px;            /* Minimal padding for easier clicking */
+    border-radius: 0;        /* No rounded corners for a more traditional link appearance */
+    display: inline;         /* Keeps the link in line with other text */
+    margin: 0;               /* No additional margins */
+    transition: color 0.3s ease; /* Smooth transition for color changes */
+}
+
+.download-link:hover {
+    color: #0056b3; 
+}
+
+
+.expander-text {
+    background-color: rgba(0, 0, 0, 0.69); /* Semi-transparent black background */
+    padding: 10px; /* Padding inside the element */
+    color: #fff; /* White text for high contrast */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Soft white border */
+    border-radius: 10px; /* Rounded corners for a smooth edge */
+    box-shadow: 2px 2px 15px rgba(255, 255, 255, 0.34); /* Soft white shadow for depth */
+    margin: 0 0 16px 0; /* Bottom margin of 16px, others are 0 */
+}
+
+.annotation-container {
+    background-color: #0000003a;  
+    border-radius: 8px; 
+    padding: 10px;
+    margin-top: 10px;
 }

@@ -17,17 +17,49 @@ def add_background_image(image_path):
     )
 
 
+# def display_songs(song_details):
+#     cols = st.columns(2)  
+#     for i, (file_name, details) in enumerate(song_details.items()):
+#         col = cols[i % 2] 
+#         with col:
+#             st.markdown(f"### {file_name}")
+#             audio_bytes = open(details['mp3_path'], 'rb').read()
+#             st.audio(audio_bytes, format='audio/mp3')
+#             st.markdown(f"[Download {file_name}]({details['mp3_path']})")
+#             with st.expander("Show ABC Annotations"):
+#                 st.text(details['abc'])
+
+
+# def display_songs(song_details):
+#     cols = st.columns(2)  
+#     for i, (file_name, details) in enumerate(song_details.items()):
+#         col = cols[i % 2]  
+#         with col:
+#             st.markdown(f'<div class="song-container">', unsafe_allow_html=True)
+#             audio_bytes = open(details['mp3_path'], 'rb').read()
+#             st.audio(audio_bytes, format='audio/mp3')
+#             st.markdown(f'<a href="{details["mp3_path"]}" download="{file_name}" class="download-link">Download {file_name}</a>', unsafe_allow_html=True)
+#             with st.expander("Show ABC Annotations", expanded=False):
+#                 st.markdown(f'<div class="expander-text">{details["abc"]}</div>', unsafe_allow_html=True)
+#             st.markdown('</div>', unsafe_allow_html=True)  
+
+
+
 def display_songs(song_details):
     cols = st.columns(2)  
     for i, (file_name, details) in enumerate(song_details.items()):
-        col = cols[i % 2] 
+        col = cols[i % 2]  
         with col:
-            st.markdown(f"### {file_name}")
-            audio_bytes = open(details['mp3_path'], 'rb').read()
-            st.audio(audio_bytes, format='audio/mp3')
-            st.markdown(f"[Download {file_name}]({details['mp3_path']})")
-            with st.expander("Show ABC Annotations"):
-                st.text(details['abc'])
+            with st.container(border=True):                
+                audio_bytes = open(details['mp3_path'], 'rb').read()
+                st.audio(audio_bytes, format='audio/mp3')
+                st.markdown(f'<a href="{details["mp3_path"]}" download="{file_name}" class="download-link">Download MP3 ⬇️</a>', unsafe_allow_html=True)
+                
+                with st.expander("Show ABC Annotations", expanded=False):
+                    st.markdown(f'<div class="expander-text">{details["abc"]}</div>', unsafe_allow_html=True)
+
+
+
 
 def main():
     bk_img = "./music_generator/app/src/music-bkgd.jpeg" 
@@ -71,21 +103,18 @@ def main():
             
             is_songs_exist = generate_songs(abc_string, abc_dir, json_file_path)
             
-            if is_songs_exist:
-                # st.markdown('<div class="generated-container">', unsafe_allow_html=True)
-                # st.text_area("Generated Music", value=abc_string, height=400)
-                # st.markdown('</div>', unsafe_allow_html=True)
-                
+            if is_songs_exist:                
                 song_details = load_song_details(json_file_path)
                 display_songs(song_details)
             else:
                 st.error("The generated songs are not clean. Please try again.")
-        else:
-            st.markdown('<div class="upload-container"><p class="instructions">Please input a starting sequence to generate music.</p></div>', unsafe_allow_html=True)
-    
-    # Display existing songs
-    # song_details = load_song_details(json_file_path)
-    # display_songs(song_details)
+    else:
+        st.markdown('''
+        <div class="input-section">
+            <p class="input-instructions">Set a start For ABC annotation and Click Generate</p>
+        </div>
+        ''', unsafe_allow_html=True)
+        
 
 if __name__ == "__main__":
     main()

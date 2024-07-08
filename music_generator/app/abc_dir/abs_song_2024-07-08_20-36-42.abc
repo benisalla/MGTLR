@@ -1,0 +1,51 @@
+<SOS>X:1
+L:1/16
+M:6/8
+K:D
+ d2 | def afd dBA | B2 B BAG | EGAB ABc | BAG F3 | EDE FGA | !fermata!D2 || | 
+ AB/c/d g2 g | fed fga | d2 d Bcd | efe def | d2 d def | gfe ABc |"D" dcd ABc | 
+ d2 d d2 :|<EOS>
+
+<SOS>X:45129
+L:1/8
+Q:1/8=180
+M:2/4
+K:G
+ (u�)(.:Gdor).d | AGF(A) | FED(D EF) | B2 (^def) | egde | (ab).=fed | M:2/2 f2 de | edFA | Bdce | d4 ||<EOS>
+
+<SOS>X:198512
+L:1/16
+M:4/4
+K:G
+ d4 B2d8 | d4 d8 | AB z6 c2 BA | dGG BcBA GDDE | !fermata!ABA B4 G2 | 
+ AGAB cBBA G3 A2 :: a2 g2 e2 edAB cA A2 | eaag ecAc cBAG | A2 Ad a2{fg} g2 ed | 
+ fa{a} e4 g4 :: agag egec d2 | Bd^fa g2 f2 gf | egab ageg | a2 ef gedg | Agag Adfa | 
+ egga ageg | a^g gdgeg | abag abag | agbg g3 :|<EOS>
+
+<SOS>X:54346
+L:1/4
+M:2/4
+K:D
+ (3FGA | A F =A | A (E2 D) | A A B | A<Gm"_TiG" G- | 
+ G/G/ C F | B A/B/ F | d A 
+ |"^ln a c | d"^Aal A" (c/B/F#" G2 F | e d B c|e | A a d B |"C" B2"^A" A =c""_B" g f =e |"Bb" e f gfg |"F" f2 c G2 :|<EOS>
+
+<SOS>X:121109
+L:1/8
+M:6/8
+K:C
+"^A" F/E/ | c>ed c2 e | edc A2 G | cde ABc | d3"G" BGBBc | ded A2 || b | 
+ aee a>ed | eAA AdA | cde BGG | ABA A2 B | GBd GABd | gfg age | edc ABA | (g/f/g/)a g3 | 
+ agf g3 | age afd | e2 a g2 d | efg g3 | abg g2 G | efg e2 d | efg gfg | a2 f>ed | efg g2 :|<EOS>
+
+<SOS>X:1815639
+L:1/8
+M:6/8
+K:G
+|: D3 E G2 B | ecA ge_B | BdB GFG | d2 d B2 B | c=EE :|<EOS>
+
+<SOS>X:179195
+L:1/8
+M:6/8
+K:G
+ B | ded BAG | FGA BAG | d2 G BAG
