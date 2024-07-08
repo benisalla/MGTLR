@@ -17,34 +17,6 @@ def add_background_image(image_path):
     )
 
 
-# def display_songs(song_details):
-#     cols = st.columns(2)  
-#     for i, (file_name, details) in enumerate(song_details.items()):
-#         col = cols[i % 2] 
-#         with col:
-#             st.markdown(f"### {file_name}")
-#             audio_bytes = open(details['mp3_path'], 'rb').read()
-#             st.audio(audio_bytes, format='audio/mp3')
-#             st.markdown(f"[Download {file_name}]({details['mp3_path']})")
-#             with st.expander("Show ABC Annotations"):
-#                 st.text(details['abc'])
-
-
-# def display_songs(song_details):
-#     cols = st.columns(2)  
-#     for i, (file_name, details) in enumerate(song_details.items()):
-#         col = cols[i % 2]  
-#         with col:
-#             st.markdown(f'<div class="song-container">', unsafe_allow_html=True)
-#             audio_bytes = open(details['mp3_path'], 'rb').read()
-#             st.audio(audio_bytes, format='audio/mp3')
-#             st.markdown(f'<a href="{details["mp3_path"]}" download="{file_name}" class="download-link">Download {file_name}</a>', unsafe_allow_html=True)
-#             with st.expander("Show ABC Annotations", expanded=False):
-#                 st.markdown(f'<div class="expander-text">{details["abc"]}</div>', unsafe_allow_html=True)
-#             st.markdown('</div>', unsafe_allow_html=True)  
-
-
-
 def display_songs(song_details):
     cols = st.columns(2)  
     for i, (file_name, details) in enumerate(song_details.items()):
@@ -53,13 +25,12 @@ def display_songs(song_details):
             with st.container(border=True):                
                 audio_bytes = open(details['mp3_path'], 'rb').read()
                 st.audio(audio_bytes, format='audio/mp3')
-                st.markdown(f'<a href="{details["mp3_path"]}" download="{file_name}" class="download-link">Download MP3 ⬇️</a>', unsafe_allow_html=True)
+                down_f_name = ".".join(file_name.split(".")[:-1]) + ".mp3"
+                st.markdown(f'<a href="{details["mp3_path"]}" download="{down_f_name}" class="download-link">Download MP3 ⬇️</a>', unsafe_allow_html=True)
                 
+                clear_abc = details["abc"].replace('\n', '<br>')
                 with st.expander("Show ABC Annotations", expanded=False):
-                    st.markdown(f'<div class="expander-text">{details["abc"]}</div>', unsafe_allow_html=True)
-
-
-
+                    st.markdown(f'<div class="expander-text">{clear_abc}</div>', unsafe_allow_html=True)
 
 def main():
     bk_img = "./music_generator/app/src/music-bkgd.jpeg" 
@@ -72,7 +43,7 @@ def main():
     clear_directory(abc_dir)
     add_background_image(bk_img)
     
-    st.markdown('<div class="title-container"><h1 class="title">🎵🎵 Music Generator App 🎵🎵</h1></div>', unsafe_allow_html=True)
+    st.markdown('<div class="title-container"><h1 class="title">🎵🎵 Music Generator 🎵🎵</h1></div>', unsafe_allow_html=True)
     
     st.sidebar.markdown('<div class="sidebar-title">Music Generator</div>', unsafe_allow_html=True)
     
@@ -86,7 +57,6 @@ def main():
     start_it = st.sidebar.text_area("Enter the start of your music sequence (e.g., X:1...)", value="X:1\n")
 
     max_length = st.sidebar.slider("Max length of generated music", min_value=256, max_value=1024, value=512)
-    # start_it = st.sidebar.text_input("", "")
 
     if st.sidebar.button("Generate Music"):
         if start_it:
@@ -107,14 +77,19 @@ def main():
                 song_details = load_song_details(json_file_path)
                 display_songs(song_details)
             else:
-                st.error("The generated songs are not clean. Please try again.")
+                error_message = """
+                <div class="error-component">
+                    <strong>Error:</strong> Unable to generate valid songs from the provided input. Please check your ABC notation for errors, adjust it if necessary, and try again. Ensure that the notation follows the correct format to allow successful song generation.
+                </div>
+                """
+                st.markdown(error_message, unsafe_allow_html=True)
+
     else:
         st.markdown('''
         <div class="input-section">
             <p class="input-instructions">Set a start For ABC annotation and Click Generate</p>
         </div>
         ''', unsafe_allow_html=True)
-        
 
 if __name__ == "__main__":
     main()

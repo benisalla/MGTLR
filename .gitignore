@@ -1,6 +1,12 @@
 /__pycache__/*
 src/
-generated_songs/
 abc_dir/
+app/abc_dir/
+/app/abc_dir/
+
+src/*
+abc_dir/*
+app/abc_dir/*
+/app/abc_dir/*
 
 # any file .mid .json .sf2 
