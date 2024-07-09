@@ -1,6 +1,1 @@
-{
-    "abs_song_2024-07-09_10-47-33_2.mid": {
-        "abc": "X:77929\nL:1/8\nM:4/4\nK:G\n D>F | G>D c>B A>G | c>B G2 D>E C>A | G>E c>B A>B A>e | d>D c>A =c>B A>B | \n A>e d>c (3A<(((cc)(AG) | A>G A>e dc/B/ | A>e | A>f (3=c B3/2 (E/G/c/d/ | a>^g f>e a<c |1 \n A>d (3d/e/d/ g>e g/e/d/ :|2 A>d (3c/d/c/B/ c<F A>F ||",
-        "mp3_path": "./music_generator/app/abc_dir/abs_song_2024-07-09_10-47-33_2.mp3"
-    }
-}
+{}

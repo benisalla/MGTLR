@@ -68,6 +68,8 @@ def generate_songs(abc_string, abc_dir, json_file_path):
     return is_exist
 
 def generate_string(sos_token, model, tokenizer, device, max_new_tokens=512, temperature=1.0, top_k=None):
+    if top_k == 0:
+        top_k = None
     in_tokens = tokenizer.encode(sos_token)
     in_tokens_tensor = torch.tensor([in_tokens], dtype=torch.long).to(device)
     out_tokens = model.generate(in_tokens_tensor, max_new_tokens=max_new_tokens, temperature=temperature, top_k=top_k)

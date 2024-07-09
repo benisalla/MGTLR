@@ -64,13 +64,13 @@
 }
 
 .download-link {
-    color: #007bff;          /* Blue color for the link, indicating interactivity */
-    text-decoration: none;   /* Removes the underline to clean up the appearance */
-    padding: 8px;            /* Minimal padding for easier clicking */
-    border-radius: 0;        /* No rounded corners for a more traditional link appearance */
-    display: inline;         /* Keeps the link in line with other text */
-    margin: 0;               /* No additional margins */
-    transition: color 0.3s ease; /* Smooth transition for color changes */
+    color: #007bff;          
+    text-decoration: none;   
+    padding: 8px;            
+    border-radius: 0;        
+    display: inline;         
+    margin: 0;               
+    transition: color 0.3s ease; 
 }
 
 .download-link:hover {
@@ -79,13 +79,13 @@
 
 
 .expander-text {
-    background-color: rgba(0, 0, 0, 0.69); /* Semi-transparent black background */
-    padding: 10px; /* Padding inside the element */
-    color: #fff; /* White text for high contrast */
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Soft white border */
-    border-radius: 10px; /* Rounded corners for a smooth edge */
-    box-shadow: 2px 2px 15px rgba(255, 255, 255, 0.34); /* Soft white shadow for depth */
-    margin: 0 0 16px 0; /* Bottom margin of 16px, others are 0 */
+    background-color: rgba(0, 0, 0, 0.69); 
+    padding: 10px;
+    color: #fff; 
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    border-radius: 10px; 
+    box-shadow: 2px 2px 15px rgba(255, 255, 255, 0.34); 
+    margin: 0 0 16px 0; 
 }
 
 .annotation-container {
@@ -95,21 +95,33 @@
     margin-top: 10px;
 }
 
+
+
 .error-component {
-    padding: 15px;
-    background-color: #ffebeb; 
-    border-left: 6px solid #ff0000; 
-    margin: 20px 0px; 
-    color: #d8000c; 
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
-    border-radius: 8px; 
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+    background-color: #e6e6e6;
+    border-left: 10px solid #ff4b4b;
+    margin: 60px 0px;
+    padding: 30px;
+    border-radius: 9px;
+    box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.33);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #262730;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.error-component strong {
+    color: #990000; 
+    font-weight: bold;
+}
+.error-component .help-text {
+    color: #333333; 
+}
+.error-component .encouragement {
+    color: #556b2f; 
 }
 
 
-
-
-/* Main app container */
 .title-container {
     background-color: #f2f2f2;
     padding: 10px;
@@ -124,7 +136,6 @@
     font-weight: bold;
 }
 
-/* Sidebar styling */
 .sidebar-title-container {
     background-color: #FFF; 
     padding: 0px;
@@ -159,8 +170,51 @@
     background: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1), rgba(255,0,0,0));
 }
 
+#audio {
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.28);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #ff4b4b;
+    margin-bottom: -10px;
+}
+
+#audio::-webkit-media-controls-panel {
+    background-color: #ffffff; 
+    border-radius: 10px; 
+    border: none; 
+}
+
+#audio::-webkit-media-controls-play-button,
+#audio::-webkit-media-controls-timeline,
+#audio::-webkit-media-controls-volume-slider {
+    color: #4CAF50; 
+}
+
+#audio::-webkit-media-controls-volume-slider {
+    background-color: #e0e0e0; 
+}
 
 
+#audio::-webkit-media-controls-play-button {
+    opacity: 1; 
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2)); 
+}
+
+#audio::-moz-focus-inner {
+    border: 0; 
+}
+
+.audio-fallback-style {
+    padding: 10px;
+    background-color: #fff;
+    text-align: center;
+    color: #333;
+    font-family: Arial, sans-serif;
+    border-radius: 10px;
+    display: none;
+}
 
 
 

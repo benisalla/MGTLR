@@ -69,8 +69,8 @@ def main():
 
     st.sidebar.markdown('<hr class="hr-style">', unsafe_allow_html=True)
     st.sidebar.markdown('<div class="section-header">Adjust Model Settings</div>', unsafe_allow_html=True)
-    max_length = st.sidebar.slider("Max length of generated tokens:", min_value=256, max_value=1024, value=512)
-    temperature = st.sidebar.slider("Temperature:", min_value=0.5, max_value=1.0, value=0.9, step=0.01)
+    max_new_tokens = st.sidebar.slider("Max length of generated tokens:", min_value=256, max_value=1024, value=512)
+    temperature = st.sidebar.slider("Temperature:", min_value=0.4, max_value=1.0, value=0.96, step=0.01)
     top_k = st.sidebar.slider("top_k:", min_value=0, max_value=10, value=0, step=1)
 
 
@@ -78,7 +78,7 @@ def main():
     if st.sidebar.button("Generate Music", type="secondary", use_container_width=True):
         clear_directory(abc_dir)
         in_str = f"<SOS>{start_it}"
-        abc_string = generate_string(in_str, st.session_state.model, st.session_state.tokenizer, st.session_state.device, max_new_tokens=max_length, temperature=1.0)
+        abc_string = generate_string(in_str, st.session_state.model, st.session_state.tokenizer, st.session_state.device, max_new_tokens=max_new_tokens, temperature=temperature, top_k=top_k)
                 
         if not isinstance(abc_string, str):
             st.error("Generated string is not valid. Please try again.")
@@ -96,7 +96,9 @@ def main():
         else:
             error_message = """
             <div class="error-component">
-                <strong>Error:</strong> Unable to generate valid songs from the provided input. Please check your ABC notation for errors, adjust it if necessary, and try again. Ensure that the notation follows the correct format to allow successful song generation.
+                <p><strong>Oops!</strong> It looks like there was a hiccup with the ABC notation you provided.</p>
+                <p class="help-text">No worries, though! Please <strong>double-check your notation</strong>, make any needed tweaks, and give it another shot. Try different configurations for the model and change the starting tokens you've used.</p>
+                <p class="encouragement">We’re here to help you create beautiful music, so don’t hesitate to adjust and try again. We believe in your creativity!</p>
             </div>
             """
             st.markdown(error_message, unsafe_allow_html=True)
