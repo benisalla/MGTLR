@@ -78,18 +78,19 @@ def main():
 
     st.sidebar.markdown('<hr class="hr-style">', unsafe_allow_html=True)
     if st.sidebar.button("Generate Music", type="secondary", use_container_width=True):
+        spinner_holder = st.empty()
+        spinner_holder.markdown(
+            """
+            <div class="custom-spinner-container">
+                <div class="custom-spinner"></div>
+                <p class="spinner-text">Loading... Please wait.</p>
+            </div>""", unsafe_allow_html=True)
+        
         clear_directory(abc_dir)
         in_str = f"<SOS>{start_it}"
         
-        with st.spinner('h',):
-            st.markdown(
-                """
-                <div class="custom-spinner-container">
-                    <div class="custom-spinner"></div>
-                    <p class="spinner-text">Loading... Please wait.</p>
-                </div>""", unsafe_allow_html=True)
-            time.sleep(90000)
-            abc_string = generate_string(in_str, st.session_state.model, st.session_state.tokenizer, st.session_state.device, max_new_tokens=max_new_tokens, temperature=temperature, top_k=top_k)
+        
+        abc_string = generate_string(in_str, st.session_state.model, st.session_state.tokenizer, st.session_state.device, max_new_tokens=max_new_tokens, temperature=temperature, top_k=top_k)
                 
         if not isinstance(abc_string, str):
             st.error("Generated string is not valid. Please try again.")
@@ -100,6 +101,8 @@ def main():
         save_abc_file(abc_string, abc_file_path)
         
         is_songs_exist = generate_songs(abc_string, abc_dir, st.session_state.json_file_path)
+        
+        spinner_holder.empty()
         
         if is_songs_exist:                
             song_details = load_song_details(st.session_state.json_file_path)
