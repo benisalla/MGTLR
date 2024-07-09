@@ -1,44 +1,18 @@
 import base64
 import time
 import streamlit as st
-from music_generator.app.utils import clear_directory, generate_songs, generate_string, init_session_state, load_model, load_song_details, load_tokenizer, save_abc_file
+from music_generator.app.utils import add_background_image, clear_directory, display_songs, generate_songs, generate_string, init_session_state, load_model, load_song_details, load_tokenizer, save_abc_file
 import torch
 import os
 from datetime import datetime
+from music_generator.app.HTMLS import SMILE_SPINNER
 
-def add_background_image(image_path):
-    with open(image_path, "rb") as image_file:
-        encoded_image = base64.b64encode(image_file.read()).decode()
-    with open("./music_generator/app/style/style.css", "r") as css_file:
-        css_content = css_file.read()
-        css_content = css_content.replace("{encoded_image}", encoded_image)
-    st.markdown(
-        f"<style>{css_content}</style>",
-        unsafe_allow_html=True
-    )
-
-
-def display_songs(song_details):
-    cols = st.columns(2)  
-    for i, (file_name, details) in enumerate(song_details.items()):
-        col = cols[i % 2]  
-        with col:
-            with st.container(border=True):                
-                audio_bytes = open(details['mp3_path'], 'rb').read()
-                st.audio(audio_bytes, format='audio/mp3')
-                down_f_name = ".".join(file_name.split(".")[:-1]) + ".mp3"
-                st.markdown(f'<a href="{details["mp3_path"]}" download="{down_f_name}" class="download-link">Download MP3 ⬇️</a>', unsafe_allow_html=True)
-                
-                clear_abc_en = details["abc"].replace('\n', '<br>').encode("utf-8")
-                clear_abc_de = clear_abc_en.decode('utf-8', errors='ignore')
-                with st.expander("Show ABC Annotations", expanded=False):
-                    st.markdown(f'<div class="expander-text">{clear_abc_de}</div>', unsafe_allow_html=True)
 
 def main():
     init_session_state(st)
     
     bk_img = "./music_generator/app/src/music-bkgd.jpeg" 
-    add_background_image(bk_img)
+    add_background_image(bk_img, st)
     
     abc_dir = "./music_generator/app/abc_dir"
     
@@ -58,7 +32,9 @@ def main():
         <h2 class="sidebar-title">Music Generator</h2>
     </div>''', unsafe_allow_html=True)
 
-    model_choice = st.sidebar.radio("Choose a model type:", ['RNN', 'LSTM', 'TRF'], horizontal=True)
+    model_choice = st.sidebar.radio("Choose a model type:", ['TRF', 'LSTM', 'RNN'], horizontal=True)
+    
+    # todo: change the model here
     
     st.sidebar.markdown('<hr class="hr-style">', unsafe_allow_html=True)
     st.sidebar.markdown('<div class="section-header">Start Note For Generator</div>', unsafe_allow_html=True)
@@ -77,18 +53,20 @@ def main():
 
 
     st.sidebar.markdown('<hr class="hr-style">', unsafe_allow_html=True)
-    if st.sidebar.button("Generate Music", type="secondary", use_container_width=True):
+    if st.sidebar.button(f"Generate With {model_choice}", type="secondary", use_container_width=True):
         spinner_holder = st.empty()
-        spinner_holder.markdown(
-            """
-            <div class="custom-spinner-container">
-                <div class="custom-spinner"></div>
-                <p class="spinner-text">Loading... Please wait.</p>
-            </div>""", unsafe_allow_html=True)
+        # spinner_holder.markdown(
+        #     """
+        #     <div class="custom-spinner-container">
+        #         <div class="custom-spinner"></div>
+        #         <p class="spinner-text">Generating Your Songs ...</p>
+        #     </div>""", unsafe_allow_html=True)
+        spinner_holder = st.markdown(SMILE_SPINNER, unsafe_allow_html=True)
         
         clear_directory(abc_dir)
         in_str = f"<SOS>{start_it}"
         
+        time.sleep(90000)
         
         abc_string = generate_string(in_str, st.session_state.model, st.session_state.tokenizer, st.session_state.device, max_new_tokens=max_new_tokens, temperature=temperature, top_k=top_k)
                 
@@ -96,17 +74,13 @@ def main():
             st.error("Generated string is not valid. Please try again.")
             return
         
-        curr_dtime = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        abc_file_path = os.path.join(abc_dir, f'abs_song_{curr_dtime}.abc')
-        save_abc_file(abc_string, abc_file_path)
-        
         is_songs_exist = generate_songs(abc_string, abc_dir, st.session_state.json_file_path)
         
         spinner_holder.empty()
         
         if is_songs_exist:                
             song_details = load_song_details(st.session_state.json_file_path)
-            display_songs(song_details)
+            display_songs(song_details, st)
         else:
             error_message = """
             <div class="error-component">

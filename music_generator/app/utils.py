@@ -117,7 +117,34 @@ def load_song_details(json_file_path):
             return json.load(json_file)
     return {}
 
+def add_background_image(image_path, st):
+    with open(image_path, "rb") as image_file:
+        encoded_image = base64.b64encode(image_file.read()).decode()
+    with open("./music_generator/app/style/style.css", "r") as css_file:
+        css_content = css_file.read()
+        css_content = css_content.replace("{encoded_image}", encoded_image)
+    st.markdown(
+        f"<style>{css_content}</style>",
+        unsafe_allow_html=True
+    )
 
+
+def display_songs(song_details, st):
+    cols = st.columns(2)  
+    for i, (file_name, details) in enumerate(song_details.items()):
+        col = cols[i % 2]  
+        with col:
+            with st.container(border=True):                
+                audio_bytes = open(details['mp3_path'], 'rb').read()
+                st.audio(audio_bytes, format='audio/mp3')
+                down_f_name = ".".join(file_name.split(".")[:-1]) + ".mp3"
+                st.markdown(f'<a href="{details["mp3_path"]}" download="{down_f_name}" class="download-link">Download MP3 ⬇️</a>', unsafe_allow_html=True)
+                
+                clear_abc_en = details["abc"].replace('\n', '<br>').encode("utf-8")
+                clear_abc_de = clear_abc_en.decode('utf-8', errors='ignore')
+                with st.expander("Show ABC Annotations", expanded=False):
+                    st.markdown(f'<div class="expander-text">{clear_abc_de}</div>', unsafe_allow_html=True)
+                    
 def init_session_state(st):
     if 'device' not in st.session_state:
         st.session_state.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -140,14 +167,14 @@ def init_session_state(st):
     if 'json_file_path' not in st.session_state:
         st.session_state.json_file_path = os.path.join(st.session_state.abc_dir, 'song_details.json')
 
-    if 'start_it' not in st.session_state:
-        st.session_state.start_it = "X:1\n"
+    # if 'start_it' not in st.session_state:
+    #     st.session_state.start_it = "X:1\n"
 
-    if 'max_length' not in st.session_state:
-        st.session_state.max_length = 512
+    # if 'max_length' not in st.session_state:
+    #     st.session_state.max_length = 512
 
-    if 'temperature' not in st.session_state:
-        st.session_state.temperature = 1.0
+    # if 'temperature' not in st.session_state:
+    #     st.session_state.temperature = 1.0
 
-    if 'top_k' not in st.session_state:
-        st.session_state.top_k = 0
+    # if 'top_k' not in st.session_state:
+    #     st.session_state.top_k = 0
