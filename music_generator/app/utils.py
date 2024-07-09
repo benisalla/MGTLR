@@ -114,3 +114,38 @@ def load_song_details(json_file_path):
         with open(json_file_path, 'r') as json_file:
             return json.load(json_file)
     return {}
+
+
+def init_session_state(st):
+    if 'device' not in st.session_state:
+        st.session_state.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    
+    if 'first_run' not in st.session_state:
+        st.session_state.first_run = True
+
+    if 'model' not in st.session_state:
+        checkpoint_path = './music_generator/src/checkpoints/mg_chpts_v1.pth'
+        st.session_state.model = load_model(checkpoint_path, st.session_state.device)
+
+    if 'tokenizer' not in st.session_state:
+        tokenizer_path = "./music_generator/src/tokenizer/mgt_tokenizer_v1.model"
+        st.session_state.tokenizer = load_tokenizer(tokenizer_path)
+
+    if 'abc_dir' not in st.session_state:
+        st.session_state.abc_dir = "./music_generator/app/abc_dir"
+        os.makedirs(st.session_state.abc_dir, exist_ok=True)
+
+    if 'json_file_path' not in st.session_state:
+        st.session_state.json_file_path = os.path.join(st.session_state.abc_dir, 'song_details.json')
+
+    if 'start_it' not in st.session_state:
+        st.session_state.start_it = "X:1\n"
+
+    if 'max_length' not in st.session_state:
+        st.session_state.max_length = 512
+
+    if 'temperature' not in st.session_state:
+        st.session_state.temperature = 1.0
+
+    if 'top_k' not in st.session_state:
+        st.session_state.top_k = 0

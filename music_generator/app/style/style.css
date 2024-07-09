@@ -105,3 +105,62 @@
     border-radius: 8px; 
     box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
 }
+
+
+
+
+/* Main app container */
+.title-container {
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.title {
+    color: #2c3e50;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+}
+
+/* Sidebar styling */
+.sidebar-title-container {
+    background-color: #FFF; 
+    padding: 0px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.sidebar-title {
+    color: #262730;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+.section-header {
+    font-size: 16px;
+    color: #fff;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.model-type {
+    font-weight: bold;
+    color: #2980b9;
+}
+
+.hr-style {
+    margin-top: -1px;
+    margin-bottom: 20px;
+    border: none;
+    background: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1), rgba(255,0,0,0));
+}
+
+
+
+
+
+
