@@ -1,4 +1,5 @@
 import base64
+import time
 import streamlit as st
 from music_generator.app.utils import clear_directory, generate_songs, generate_string, init_session_state, load_model, load_song_details, load_tokenizer, save_abc_file
 import torch
@@ -28,9 +29,10 @@ def display_songs(song_details):
                 down_f_name = ".".join(file_name.split(".")[:-1]) + ".mp3"
                 st.markdown(f'<a href="{details["mp3_path"]}" download="{down_f_name}" class="download-link">Download MP3 ⬇️</a>', unsafe_allow_html=True)
                 
-                clear_abc = details["abc"].replace('\n', '<br>').encode("utf-8")
+                clear_abc_en = details["abc"].replace('\n', '<br>').encode("utf-8")
+                clear_abc_de = clear_abc_en.decode('utf-8', errors='ignore')
                 with st.expander("Show ABC Annotations", expanded=False):
-                    st.markdown(f'<div class="expander-text">{clear_abc}</div>', unsafe_allow_html=True)
+                    st.markdown(f'<div class="expander-text">{clear_abc_de}</div>', unsafe_allow_html=True)
 
 def main():
     init_session_state(st)
@@ -78,7 +80,16 @@ def main():
     if st.sidebar.button("Generate Music", type="secondary", use_container_width=True):
         clear_directory(abc_dir)
         in_str = f"<SOS>{start_it}"
-        abc_string = generate_string(in_str, st.session_state.model, st.session_state.tokenizer, st.session_state.device, max_new_tokens=max_new_tokens, temperature=temperature, top_k=top_k)
+        
+        with st.spinner('h',):
+            st.markdown(
+                """
+                <div class="custom-spinner-container">
+                    <div class="custom-spinner"></div>
+                    <p class="spinner-text">Loading... Please wait.</p>
+                </div>""", unsafe_allow_html=True)
+            time.sleep(90000)
+            abc_string = generate_string(in_str, st.session_state.model, st.session_state.tokenizer, st.session_state.device, max_new_tokens=max_new_tokens, temperature=temperature, top_k=top_k)
                 
         if not isinstance(abc_string, str):
             st.error("Generated string is not valid. Please try again.")
@@ -96,8 +107,8 @@ def main():
         else:
             error_message = """
             <div class="error-component">
-                <p><strong>Oops!</strong> It looks like there was a hiccup with the ABC notation you provided.</p>
-                <p class="help-text">No worries, though! Please <strong>double-check your notation</strong>, make any needed tweaks, and give it another shot. Try different configurations for the model and change the starting tokens you've used.</p>
+                <p><strong>Oops!</strong> It looks like there was a hiccup with the ABC notation provided by the our model.</p>
+                <p class="help-text">No worries, though! Please <strong>double-check your starting notes</strong>, make any needed tweaks, and give it another shot. Try different configurations for the model and change the starting notes you've used.</p>
                 <p class="encouragement">We’re here to help you create beautiful music, so don’t hesitate to adjust and try again. We believe in your creativity!</p>
             </div>
             """
