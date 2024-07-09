@@ -170,6 +170,9 @@
     background: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1), rgba(255,0,0,0));
 }
 
+
+/* ============================ audio ============================ */
+
 #audio {
     width: 100%;
     max-width: 600px;
@@ -217,48 +220,18 @@
 }
 
 
-
-.custom-spinner-container {
-    margin-top: 4rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.custom-spinner {
-    width: 70px;
-    height: 70px;
-    border: 6px solid #ff4b4b;
-    border-top-color: rgb(255, 75, 75);
-    border-top-color: #c1464600;
-    border-radius: 50%;
-    animation: spin 1s cubic-bezier(.73,.13,.24,.82) infinite;
-}
-
-.spinner-text {
-    margin-top: 20px;
-    font-size: 16px;
-    color: rgb(255, 255, 255); 
-    text-align: center; 
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-} 
-
-
-
-
 /* ============================== smile - smail :) =============================== */
 
 .smile-spinner-container {
     font: 1em/1.5 sans-serif;
     display: grid;
     place-items: center;
-    transition: background-color var(--trans-dur), color var(--trans-dur);
-    margin: 4rem auto;
+    transition: background-color #f0f, color #0f0;
+    margin: 0rem auto;
+    background: #00000057;
+    height: 50vh;
+    width: 50vw;
+    border-radius: 1.5rem;
 }
 
 .smiley {
@@ -274,18 +247,17 @@
 .smiley__eye1,
 .smiley__eye2 {
 	transform-origin: 64px 64px;
-    fill: #990000 !important;
 }
 .smiley__eye2 {
 	animation-name: eye2;
 }
 .smiley__mouth1 {
 	animation-name: mouth1;
-    stroke: #ffffff !important;
+    stroke: rgb(255, 75, 75)!important;
 }
 .smiley__mouth2 {
 	animation-name: mouth2;
-    stroke: #ffffff !important;
+    stroke: rgb(255, 75, 75) !important;
 	visibility: hidden;
 }
 

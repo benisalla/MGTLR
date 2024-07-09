@@ -16,14 +16,14 @@ SMILE_SPINNER = """
 	</defs>
 	<g stroke-linecap="round" stroke-width="12" stroke-dasharray="175.93 351.86">
 		<g>
-			<rect fill="rgb(255, 75, 75)" width="128" height="64" clip-path="url(#smiley-eyes)" />
+			<rect fill="rgb(93, 173, 236)" width="128" height="64" clip-path="url(#smiley-eyes)" />
 			<g fill="none" stroke="hsl(193,90%,50%)">
 				<circle class="smiley__mouth1" cx="64" cy="64" r="56" transform="rotate(180,64,64)" />
 				<circle class="smiley__mouth2" cx="64" cy="64" r="56" transform="rotate(0,64,64)" />
 			</g>
 		</g>
 		<g mask="url(#smiley-mask)">
-			<rect fill="rgb(255, 75, 75)" width="128" height="64" clip-path="url(#smiley-eyes)" />
+			<rect fill="rgb(93, 173, 236)" width="128" height="64" clip-path="url(#smiley-eyes)" />
 			<g fill="none" stroke="hsl(223,90%,50%)">
 				<circle class="smiley__mouth1" cx="64" cy="64" r="56" transform="rotate(180,64,64)" />
 				<circle class="smiley__mouth2" cx="64" cy="64" r="56" transform="rotate(0,64,64)" />

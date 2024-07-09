@@ -11,7 +11,7 @@ from music_generator.app.HTMLS import SMILE_SPINNER
 def main():
     init_session_state(st)
     
-    bk_img = "./music_generator/app/src/music-bkgd.jpeg" 
+    bk_img = "./music_generator/app/src/image-2.png" 
     add_background_image(bk_img, st)
     
     abc_dir = "./music_generator/app/abc_dir"
