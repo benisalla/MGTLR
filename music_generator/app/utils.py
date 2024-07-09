@@ -8,7 +8,7 @@ from datetime import datetime
 from midi2audio import FluidSynth
 from pydub import AudioSegment
 from music21 import converter
-from music_generator.model.MGTransformer import MGTransformer
+from music_generator.model.TRF.MGTransformer import MGTransformer
 from music_generator.tokenizing.tokenizer.MGTokenizer import MGTokenizer
 
 def load_model(checkpoint_path, device="cpu"):
