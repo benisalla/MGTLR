@@ -9,4 +9,8 @@ abc_dir/*
 app/abc_dir/*
 /app/abc_dir/*
 
-# any file .mid .json .sf2 
+# Ignore specific file types
+*.sf2
+*.mid
+*.json
+*.txt
