@@ -11,7 +11,7 @@ from music_generator.app.HTMLS import SMILE_SPINNER
 def main():
     init_session_state(st)
     
-    bk_img = "./music_generator/app/src/image-2.png" 
+    bk_img = "./music_generator/app/src/music-bkgd.jpeg" 
     add_background_image(bk_img, st)
     
     abc_dir = "./music_generator/app/abc_dir"
@@ -41,8 +41,8 @@ def main():
     start_it = st.sidebar.text_area(" ",
         value="",
         height=200,
-        help="Start your ABC notation down below :arrow-down:",
-        placeholder="X: 45149\nT: The Example Tune\nC: Composer Name\nM: 3/4\nL: 1/8\nK: Amin\nA, B, C E | D E F A | B A G E | A3 z |"
+        help="Start your ABC notation down below ",
+        placeholder="X: 45149\nT: BenIsAlla Tune\nC: Composer Name\nM: 3/4\nL: 1/8\nK: Amin\nA, B, C E | D E F A | B A G E | A3 z |"
     )
 
     st.sidebar.markdown('<hr class="hr-style">', unsafe_allow_html=True)
@@ -55,19 +55,10 @@ def main():
     st.sidebar.markdown('<hr class="hr-style">', unsafe_allow_html=True)
     if st.sidebar.button(f"Generate With {model_choice}", type="secondary", use_container_width=True):
         spinner_holder = st.empty()
-        # spinner_holder.markdown(
-        #     """
-        #     <div class="custom-spinner-container">
-        #         <div class="custom-spinner"></div>
-        #         <p class="spinner-text">Generating Your Songs ...</p>
-        #     </div>""", unsafe_allow_html=True)
         spinner_holder = st.markdown(SMILE_SPINNER, unsafe_allow_html=True)
         
         clear_directory(abc_dir)
-        in_str = f"<SOS>{start_it}"
-        
-        time.sleep(90000)
-        
+        in_str = f"<SOS>{start_it}"        
         abc_string = generate_string(in_str, st.session_state.model, st.session_state.tokenizer, st.session_state.device, max_new_tokens=max_new_tokens, temperature=temperature, top_k=top_k)
                 
         if not isinstance(abc_string, str):
@@ -94,7 +85,7 @@ def main():
     else:
         song_details = load_song_details(st.session_state.json_file_path)
         if song_details:
-            display_songs(song_details)
+            display_songs(song_details, st)  
         else:
             st.markdown('''
             <div class="input-section">

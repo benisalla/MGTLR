@@ -94,7 +94,7 @@ def save_abc_file(abc_content, file_path):
         abc_file.write(abc_content)
 
 def convert_midi_to_wav(mid_file):
-    fs = FluidSynth()
+    fs = FluidSynth("./music_generator/app/src/FluidR3_GM.sf2")
     wav_file = mid_file.replace('.mid', '.wav')
     fs.midi_to_audio(mid_file, wav_file)
     return wav_file

@@ -42,7 +42,7 @@ class MGTransformer(nn.Module):
         for param_name, param in self.named_parameters():
             if param_name.endswith('proj.weight'):
                 torch.nn.init.normal_(param, mean=0.0, std=0.02/math.sqrt(2 * n_block))
-        print("number of parameters: %.2fM" % (self.get_num_params()/1e6,))
+        # print("number of parameters: %.2fM" % (self.get_num_params()/1e6,))
 
     def get_num_params(self, non_embedding=True):
         n_params = sum(p.numel() for p in self.parameters())
