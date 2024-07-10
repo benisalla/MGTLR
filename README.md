@@ -1,7 +1,7 @@
 <div align="center">
-  <img src="https://github.com/benisalla/Tiny-ViT-Transformer-from-scratch/assets/89405673/035598be-ea1c-4501-947a-ff51524e78ef" width="200" height="200"/>
-  <h1>MG-Transformer: Music Generation Transformer from Scratch</h1>
-  <p>Implementing a Music Generation Transformer model from scratch.</p>
+  <img src="https://github.com/benisalla/music_generator_with_3_nlp_algorithms/assets/89405673/1cb68f56-61c5-4540-b934-3562d2f15a42" width="200" height="200"/>
+  <h1>MGTLR: Music Generator using Transformer, LSTM, and RNN</h1>
+  <p>Implementing a Music Generation model using Transformer, LSTM, and RNN from scratch.</p>
 </div>
 
 ---
@@ -12,13 +12,10 @@
 - [Features](#features)
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
-- [Installation](#installation)
 - [Usage](#usage)
 - [Training](#training)
 - [Fine-Tuning](#fine-tuning)
-- [Model Performance](#model-performance)
-- [Roadmap](#roadmap)
-- [Contributing](#contributing)
+- [Some Examples](#model-performance)
 - [License](#license)
 - [About Me](#about-me)
 
@@ -27,16 +24,18 @@
 ## About The Project
 
 <div align="center">
-  <img src="https://github.com/benisalla/Tiny-ViT-Transformer-from-scratch/assets/89405673/4935a979-a8e8-40f0-8ffb-e621025aac2f" width="600" height="300"/>
+  <img src="https://github.com/benisalla/music_generator_with_3_nlp_algorithms/assets/89405673/32cbc10c-979e-44f9-99b8-e0d8d5096fc3" width="600" height="300"/>
 </div>
 
-MG-Transformer offers a minimalist, yet complete implementation of the Music Generation Transformer (MG-Transformer) architecture for music generation tasks. This project aims to provide a clear and structured approach to building Transformers for music generation, making it accessible for educational purposes and practical applications alike.
+
+
+MGTLR offers a minimalist, yet complete implementation of music generation using Transformer, LSTM, and RNN architectures. This project aims to provide a clear and structured approach to building neural networks for music generation, making it accessible for educational purposes and practical applications alike.
 
 ---
 
 ## Features
 
-- **Modular Design**: Clear separation of components like data processing, model architecture, and training routines.
+- **Modular Design**: Clear separation of components like data processing, model architecture, and training scripts.
 - **Customizable**: Easy to adapt the architecture and data pipeline for various datasets and applications.
 - **Poetry Dependency Management**: Utilizes Poetry for simple and reliable package management.
 
@@ -44,14 +43,14 @@ MG-Transformer offers a minimalist, yet complete implementation of the Music Gen
 
 ## Project Structure
 ```
-MG-TRANSFORMER
+MGTLR
 │
 ├── generated_songs           # Generated music files
 ├── music_generator           # Main project directory
 │   ├── app                   # Application files
 │   ├── core                  # Core configurations and caching
 │   ├── data                  # Data processing modules
-│   ├── model                 # Transformer model components
+│   ├── model                 # Model components
 │   └── src                   # Source files
 │       ├── checkpoints       # Model checkpoints
 │       ├── dataset           # Dataset handling
@@ -76,8 +75,8 @@ MG-TRANSFORMER
 
 ---
 
-### Built With
-This section should list any major frameworks/libraries used to bootstrap your project:
+## Built With
+This section lists the major frameworks/libraries used to bootstrap your project:
 - [PyTorch](https://pytorch.org/)
 
 ---
@@ -101,7 +100,7 @@ To get a local copy up and running follow these simple steps.
 
 ## Usage
 
-How you can use this code
+How you can use this code:
 
 ### Training
 
@@ -123,35 +122,15 @@ poetry run python finetune.py
 
 ## Model Performance
 
-The MG-Transformer model was evaluated on a comprehensive set of test music data to gauge its accuracy and performance. Here are the results:
+The MGTLR model was evaluated on a comprehensive set of test music data to gauge its accuracy and performance. Here are the results:
 
 - **Accuracy on test music data**: 81.60%
 
-These results demonstrate the effectiveness of the MG-Transformer model in handling complex music generation tasks. We continuously seek to improve the model and update the metrics as new test results become available.
+These results demonstrate the effectiveness of the MGTLR model in handling complex music generation tasks. We continuously seek to improve the model and update the metrics as new test results become available.
 
 ![image](https://github.com/benisalla/Tiny-ViT-Transformer-from-scratch/assets/89405673/62531c3f-6684-4000-a151-acee6a399ab3)
 
 ![image](https://github.com/benisalla/Tiny-ViT-Transformer-from-scratch/assets/89405673/7aafbd0a-f48b-46dd-9caf-d99f42e063e3)
-
----
-
-## Roadmap
-
-See the [open issues](https://github.com/benisalla/mg-transformer/issues) for a list of proposed features (and known issues).
-
----
-
-## Contributing 
-
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-Contributions are welcome! For major changes, please open an issue first to discuss what you would like to change.
 
 ---
 
@@ -161,7 +140,7 @@ This project is made available under **fair use guidelines**. While there is no 
 
 ```bibtex
 @misc{mg_transformer_2024,
-  title={MG-Transformer: Music Generation Transformer from Scratch},
+  title={MGTLR: Music Generator using Transformer, LSTM, and RNN},
   author={Ben Alla Ismail},
   year={2024},
   url={https://github.com/benisalla/mg-transformer}
