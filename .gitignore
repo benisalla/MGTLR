@@ -1,6 +1,7 @@
 # Ignore cache files
 __pycache__/
 *.pyc
+*./ipynb
 
 # Ignore specific directories
 music_generator/src/
