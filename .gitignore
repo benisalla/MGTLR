@@ -5,13 +5,15 @@ __pycache__/
 *./ipynb
 
 # Ignore specific directories
-music_generator/src/
 abc_dir/
-app/abc_dir/
-src/
 abc_dir/
 app/abc_dir/
 app/abc_dir/
+app/abc_dir/
+
+src/checkpoints/
+src/dataset/
+src/tokenizer/
 
 # Ignore specific file types
 *.sf2
