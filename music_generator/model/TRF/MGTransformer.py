@@ -1,29 +1,26 @@
+import torch
+from torch import nn
+import torch.nn.functional as F
+import math
 from music_generator.model.TRF.MGBlock import MGBlock
 from music_generator.model.TRF.MGLayerNorm import MGLayerNorm
-import torch.nn.functional as F
-import torch
-import torch.nn as nn
-import math
-
 
 class MGTransformer(nn.Module):
-    def __init__(self, n_embd, h_dim, n_block, v_size, b_size, max_seq_len, ff_dim=None, drop_rate=0.0, bias=False, device="cpu"):
-        super().__init__()
-        assert all(x is not None for x in [n_embd, h_dim, n_block, v_size, b_size]), "All parameters must be provided !"
+    def __init__(self, n_embd: int, h_dim: int, n_block: int, v_size: int, b_size: int, max_seq_len: int, ff_dim: int = None, drop_rate: float = 0.0, bias: bool = False, device: str = "cpu"):
+        super(MGTransformer, self).__init__()
+        self.n_block: int = n_block
+        self.ff_dim: int = ff_dim if ff_dim else 4 * n_embd
+        self.n_embd: int = n_embd
+        self.h_dim: int = h_dim
+        self.max_seq_len: int = max_seq_len
+        self.n_head: int = n_embd // h_dim
+        self.v_size: int = v_size
+        self.b_size: int = b_size
+        self.drop_rate: float = drop_rate
+        self.bias: bool = bias
+        self.device: str = device
 
-        self.n_block = n_block
-        self.ff_dim = ff_dim if ff_dim else 4 * n_embd
-        self.n_embd = n_embd
-        self.h_dim = h_dim
-        self.max_seq_len = max_seq_len
-        self.n_head = self.n_embd // self.h_dim
-        self.v_size = v_size
-        self.b_size = b_size
-        self.drop_rate = drop_rate
-        self.bias = bias
-        self.device = device
-
-        self.decoder = nn.ModuleDict(dict(
+        self.decoder: nn.ModuleDict = nn.ModuleDict(dict(
             tok_emb = nn.Embedding(self.v_size, self.n_embd),
             pos_emb = nn.Embedding(self.max_seq_len, self.n_embd),
             dropout = nn.Dropout(self.drop_rate),
@@ -34,7 +31,7 @@ class MGTransformer(nn.Module):
             f_ln = MGLayerNorm(n_dim=self.n_embd, bias=self.bias),
         ))
 
-        self.lm_head = nn.Linear(self.n_embd, self.v_size, bias=False)
+        self.lm_head: nn.Linear = nn.Linear(self.n_embd, self.v_size, bias=False)
         self.decoder.tok_emb.weight = self.lm_head.weight
 
         self.apply(self._init_weights)
@@ -58,16 +55,20 @@ class MGTransformer(nn.Module):
         elif isinstance(module, nn.Embedding):
             torch.nn.init.normal_(module.weight, mean=0.0, std=0.02)
 
-    def forward(self, idx, targets=None):
+    def forward(
+            self, 
+            idx: torch.Tensor, 
+            targets: torch.Tensor = None
+        ) -> (torch.Tensor, torch.Tensor):
+        
         device = idx.device
         B, T = idx.size()
         if T > self.max_seq_len:
             raise ValueError(f"Sequence length T = {T} exceeds maximum allowed seq_len = {self.seq_len}")
 
-        pos = torch.arange(0, T, dtype=torch.long, device=device)
-
-        tok_emb = self.decoder.tok_emb(idx)
-        pos_emb = self.decoder.pos_emb(pos)
+        pos: torch.Tensor = torch.arange(0, T, dtype=torch.long, device=device)
+        tok_emb: torch.Tensor = self.decoder.tok_emb(idx)
+        pos_emb: torch.Tensor = self.decoder.pos_emb(pos)
 
         x = self.decoder.dropout(tok_emb + pos_emb)
         for block in self.decoder.blocks:
