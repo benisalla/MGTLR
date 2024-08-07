@@ -111,11 +111,29 @@ Follow these simple steps to get a local copy up and running.
 
 ### Training
 
-  To train the model using the default configuration:
+#### How to Run Training
 
-  ```sh
-  poetry run python train.py
-  ```
+To train the model using the default configuration, execute the following command:
+
+```sh
+poetry run python train.py
+```
+
+#### Results of Training Different Models
+
+1. **Transformer (TRF)**
+
+   ![Transformer Training Results](https://github.com/user-attachments/assets/bcf83ee8-a9ef-4cdb-83d2-435f07a00f49)
+
+2. **Recurrent Neural Network (RNN)**
+
+   ![RNN Training Results](https://github.com/user-attachments/assets/49a4e22b-5851-4817-91de-311b398c330d)
+
+3. **Long Short-Term Memory (LSTM)**
+
+   ![LSTM Training Results](https://github.com/user-attachments/assets/72b4d3fb-3cf4-444e-bbc4-02695c3c117c)
+
+
 
 ### Fine-Tuning
 
