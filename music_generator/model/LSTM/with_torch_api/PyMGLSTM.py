@@ -42,7 +42,7 @@ class PyMGLSTM(nn.Module):
 
         return logits, loss
     
-    def generate(self, tokenizer, start: str, length: int = 1000, temperature: float = 1.0, top_k: Optional[int] = None) -> str:
+    def generate(self, tokenizer, start: str, max_new_tokens: int = 1000, temperature: float = 1.0, top_k: Optional[int] = None) -> str:
 
         self.eval()
         input_eval = torch.tensor(tokenizer.encode(start), device=self.device).unsqueeze(0)
@@ -50,7 +50,7 @@ class PyMGLSTM(nn.Module):
 
         h: Optional[torch.Tensor] = None
 
-        for _ in tqdm(range(length)):
+        for _ in tqdm(range(max_new_tokens)):
             logits, h = self.forward(input_eval, h)
             preds = logits[:, -1, :] / temperature
 
