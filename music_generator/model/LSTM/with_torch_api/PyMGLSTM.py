@@ -1,7 +1,8 @@
 import torch
 from torch import nn
-from typing import Optional, Tuple
+from typing import List, Optional, Tuple
 import torch.nn.functional as F
+from tqdm import tqdm
 from music_generator.model.LSTM.with_torch_api import PyLSTM
 
 class PyMGLSTM(nn.Module):
@@ -40,3 +41,27 @@ class PyMGLSTM(nn.Module):
             loss: Optional[torch.Tensor] = None
 
         return logits, loss
+    
+    def generate(self, tokenizer, start: str, length: int = 1000, temperature: float = 1.0, top_k: Optional[int] = None) -> str:
+
+        self.eval()
+        input_eval = torch.tensor(tokenizer.encode(start), device=self.device).unsqueeze(0)
+        generated: List[str] = []
+
+        h: Optional[torch.Tensor] = None
+
+        for _ in tqdm(range(length)):
+            logits, h = self.forward(input_eval, h)
+            preds = logits[:, -1, :] / temperature
+
+            if top_k is not None:
+                values, indices = torch.topk(preds, top_k)
+                preds = torch.zeros_like(preds).scatter_(1, indices, values)
+
+            probs = F.softmax(preds, dim=-1)
+            id = torch.multinomial(probs, num_samples=1).item()
+
+            input_eval = torch.tensor([[id]], device=self.device)
+            generated.append(tokenizer.decode([id]))
+
+        return start + ''.join(generated)

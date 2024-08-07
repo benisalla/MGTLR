@@ -1,7 +1,7 @@
 import torch
 from torch import nn
 import torch.nn.functional as F
-from typing import Any, Optional, Dict, Tuple
+from typing import Any, List, Optional, Dict, Tuple
 from music_generator.model.LSTM.from_scratch import LSTMBlock
 from tqdm import tqdm
 
@@ -39,16 +39,25 @@ class MGLSTM(nn.Module):
 
         return logits, loss
 
-    def generate(self, tokenizer, start: str, length: int = 1000) -> str:
+    def generate(self, tokenizer, start: str, length: int = 1000, temperature: float = 1.0, top_k: Optional[int] = None) -> str:
+
         self.eval()
         input_eval = torch.tensor(tokenizer.encode(start), device=self.device).unsqueeze(0)
-        generated = []
+        generated: List[str] = []
 
-        h = None
+        h: Optional[torch.Tensor] = None
+
         for _ in tqdm(range(length)):
-            logits, _ = self.forward(input_eval)
-            preds = logits[:, -1, :]
-            id = torch.multinomial(F.softmax(preds, dim=-1), num_samples=1).item()
+            logits, h = self.forward(input_eval, h)
+            preds = logits[:, -1, :] / temperature
+
+            if top_k is not None:
+                values, indices = torch.topk(preds, top_k)
+                preds = torch.zeros_like(preds).scatter_(1, indices, values)
+
+            probs = F.softmax(preds, dim=-1)
+            id = torch.multinomial(probs, num_samples=1).item()
+
             input_eval = torch.tensor([[id]], device=self.device)
             generated.append(tokenizer.decode([id]))
 
