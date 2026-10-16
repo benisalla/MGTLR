@@ -1,0 +1,343 @@
+.stApp {
+    background-image: url("data:image/png;base64,{encoded_image}");
+    background-size: cover;
+    background-position: center;
+}
+
+.title-container {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.input-section {
+    background: linear-gradient(135deg, #0009, #0009);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 3px 3px 32px rgba(255, 255, 255, 0.93);
+    text-align: center;
+    margin: 30px auto;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+}
+
+.input-instructions {
+    font-size: 22px;
+    font-weight: 501;
+    padding: 0;
+    margin: 0;
+}
+
+
+.title {
+    color: white;
+    font-size: 2.5em;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+}
+
+
+.sidebar-title {
+    font-size: 1.5em;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar-header {
+    font-size: 1.2em;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.audio-container {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 1.2em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.download-link {
+    color: #007bff;          
+    text-decoration: none;   
+    padding: 8px;            
+    border-radius: 0;        
+    display: inline;         
+    margin: 0;               
+    transition: color 0.3s ease; 
+}
+
+.download-link:hover {
+    color: #0056b3; 
+}
+
+
+.expander-text {
+    background-color: rgba(0, 0, 0, 0.69); 
+    padding: 10px;
+    color: #fff; 
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    border-radius: 10px; 
+    box-shadow: 2px 2px 15px rgba(255, 255, 255, 0.34); 
+    margin: 0 0 16px 0; 
+}
+
+.annotation-container {
+    background-color: #0000003a;  
+    border-radius: 8px; 
+    padding: 10px;
+    margin-top: 10px;
+}
+
+
+
+.error-component {
+    background-color: #e6e6e6;
+    border-left: 10px solid #ff4b4b;
+    margin: 60px 0px;
+    padding: 30px;
+    border-radius: 9px;
+    box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.33);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #262730;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.error-component strong {
+    color: #990000; 
+    font-weight: bold;
+}
+.error-component .help-text {
+    color: #333333; 
+}
+.error-component .encouragement {
+    color: #556b2f; 
+}
+
+
+.title-container {
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.title {
+    color: #2c3e50;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+}
+
+.sidebar-title-container {
+    background-color: #FFF; 
+    padding: 0px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.sidebar-title {
+    color: #262730;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+.section-header {
+    font-size: 16px;
+    color: #fff;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.model-type {
+    font-weight: bold;
+    color: #2980b9;
+}
+
+.hr-style {
+    margin-top: -1px;
+    margin-bottom: 20px;
+    border: none;
+    background: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1), rgba(255,0,0,0));
+}
+
+
+/* ============================ audio ============================ */
+
+#audio {
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.28);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #ff4b4b;
+    margin-bottom: -10px;
+}
+
+#audio::-webkit-media-controls-panel {
+    background-color: #ffffff; 
+    border-radius: 10px; 
+    border: none; 
+}
+
+#audio::-webkit-media-controls-play-button,
+#audio::-webkit-media-controls-timeline,
+#audio::-webkit-media-controls-volume-slider {
+    color: #4CAF50; 
+}
+
+#audio::-webkit-media-controls-volume-slider {
+    background-color: #e0e0e0; 
+}
+
+
+#audio::-webkit-media-controls-play-button {
+    opacity: 1; 
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2)); 
+}
+
+#audio::-moz-focus-inner {
+    border: 0; 
+}
+
+.audio-fallback-style {
+    padding: 10px;
+    background-color: #fff;
+    text-align: center;
+    color: #333;
+    font-family: Arial, sans-serif;
+    border-radius: 10px;
+    display: none;
+}
+
+
+/* ============================== smile - smail :) =============================== */
+
+.smile-spinner-container {
+    font: 1em/1.5 sans-serif;
+    display: grid;
+    place-items: center;
+    transition: background-color #f0f, color #0f0;
+    margin: 0rem auto;
+    background: #00000057;
+    height: 50vh;
+    width: 50vw;
+    border-radius: 1.5rem;
+}
+
+.smiley {
+	width: 8em;
+	height: 8em;
+}
+.smiley__eye1,
+.smiley__eye2,
+.smiley__mouth1,
+.smiley__mouth2 {
+	animation: eye1 3s ease-in-out infinite;
+}
+.smiley__eye1,
+.smiley__eye2 {
+	transform-origin: 64px 64px;
+}
+.smiley__eye2 {
+	animation-name: eye2;
+}
+.smiley__mouth1 {
+	animation-name: mouth1;
+    stroke: rgb(255, 75, 75)!important;
+}
+.smiley__mouth2 {
+	animation-name: mouth2;
+    stroke: rgb(255, 75, 75) !important;
+	visibility: hidden;
+}
+
+
+@keyframes eye1 {
+	from {
+		transform: rotate(-260deg) translate(0, -56px);
+	}
+	50%,
+	60% {
+		animation-timing-function: cubic-bezier(0.17, 0, 0.58, 1);
+		transform: rotate(-40deg) translate(0, -56px) scale(1);
+	}
+	to {
+		transform: rotate(225deg) translate(0, -56px) scale(0.35);
+	}
+}
+@keyframes eye2 {
+	from {
+		transform: rotate(-260deg) translate(0, -56px);
+	}
+	50% {
+		transform: rotate(40deg) translate(0, -56px) rotate(-40deg) scale(1);
+	}
+	52.5% {
+		transform: rotate(40deg) translate(0, -56px) rotate(-40deg) scale(1, 0);
+	}
+	55%,
+	70% {
+		animation-timing-function: cubic-bezier(0, 0, 0.28, 1);
+		transform: rotate(40deg) translate(0, -56px) rotate(-40deg) scale(1);
+	}
+	to {
+		transform: rotate(150deg) translate(0, -56px) scale(0.4);
+	}
+}
+@keyframes eyeBlink {
+	from,
+	25%,
+	75%,
+	to {
+		transform: scaleY(1);
+	}
+	50% {
+		transform: scaleY(0);
+	}
+}
+@keyframes mouth1 {
+	from {
+		animation-timing-function: ease-in;
+		stroke-dasharray: 0 351.86;
+		stroke-dashoffset: 0;
+	}
+	25% {
+		animation-timing-function: ease-out;
+		stroke-dasharray: 175.93 351.86;
+		stroke-dashoffset: 0;
+	}
+	50% {
+		animation-timing-function: steps(1, start);
+		stroke-dasharray: 175.93 351.86;
+		stroke-dashoffset: -175.93;
+		visibility: visible;
+	}
+	75%,
+	to {
+		visibility: hidden;
+	}
+}
+@keyframes mouth2 {
+	from {
+		animation-timing-function: steps(1, end);
+		visibility: hidden;
+	}
+	50% {
+		animation-timing-function: ease-in-out;
+		visibility: visible;
+		stroke-dashoffset: 0;
+	}
+	to {
+		stroke-dashoffset: -351.86;
+	}
+}

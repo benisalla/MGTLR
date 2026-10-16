@@ -1,41 +1,23 @@
-# Ignore cache files
+# Python
+.venv/
 __pycache__/
-/__pycache__/
 *.pyc
-*./ipynb
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
 
-# Ignore specific directories
-music_generator/app/abc_dir/
-
-music_generator/src/checkpoints/
-music_generator/src/dataset/
-music_generator/src/tokenizer/
-
-# Ignore specific file types
+# Data, tokenizers, checkpoints and generated music (large / reproducible)
+/data/
+/tokenizer/
+/checkpoints/
+/outputs/
 *.sf2
 *.mid
-*.json
-*.txt
-
-# Ignore large files (common large file types)
-*.zip
-*.tar.gz
-*.rar
-*.7z
-*.mp4
-*.mp3
 *.wav
-*.flac
-*.mov
-*.avi
-*.mkv
+*.mp3
 
-# Ignore binary files
-*.exe
-*.dll
-*.so
-*.bin
-*.dat
-*.o
-*.a
-*.lib
+# Legacy layout (kept from the original project)
+legacy/music_generator/app/abc_dir/
+legacy/music_generator/src/checkpoints/
+legacy/music_generator/src/dataset/
+legacy/music_generator/src/tokenizer/
