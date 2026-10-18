@@ -99,4 +99,4 @@ One loop serves the three models:
   and `training_curves.png`. `--resume` continues a run.
 
 Checkpoints are self-contained: weights, model config, train config and the
-tokenizer merges. `mgtlr-generate` needs nothing else.
+tokenizer merges. `musicgen-generate` needs nothing else.

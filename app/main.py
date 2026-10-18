@@ -26,9 +26,9 @@ sys.path.insert(0, str(APP_DIR))
 
 from components import ERROR_MESSAGE, SMILE_SPINNER
 
-from mgtlr.checkpoint import load_checkpoint
-from mgtlr.generate import generate_abc
-from mgtlr.music import abc_to_midi, midi_to_wav, wav_to_mp3
+from musicgen.checkpoint import load_checkpoint
+from musicgen.generate import generate_abc
+from musicgen.music import abc_to_midi, midi_to_wav, wav_to_mp3
 
 MODELS = {"TRF": "transformer", "LSTM": "lstm", "RNN": "rnn"}
 PLACEHOLDER = "X:1\nT:BenIsAlla Tune\nM:3/4\nL:1/8\nK:Amin\nA,B,CE | DEFA | BAGE | A3z |"
@@ -75,7 +75,7 @@ def synthesize(abc: str, name: str) -> dict:
 
 
 def main() -> None:
-    st.set_page_config(page_title="MGTLR Music Generator", page_icon="🎵", layout="wide")
+    st.set_page_config(page_title="MusicGen Music Generator", page_icon="🎵", layout="wide")
     add_style()
     st.session_state.setdefault("songs", [])
 
@@ -113,7 +113,7 @@ def main() -> None:
     st.sidebar.markdown('<hr class="hr-style">', unsafe_allow_html=True)
     if st.sidebar.button(f"Generate With {choice}", use_container_width=True):
         if not Path(checkpoint).is_file():
-            st.error(f"No checkpoint at `{checkpoint}`. Train one first: `mgtlr-train --model {model_type}`.")
+            st.error(f"No checkpoint at `{checkpoint}`. Train one first: `musicgen-train --model {model_type}`.")
             return
         spinner = st.empty()
         spinner.markdown(SMILE_SPINNER, unsafe_allow_html=True)

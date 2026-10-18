@@ -1,6 +1,6 @@
 import pytest
 
-from mgtlr.tokenizer import EOS, PAD, SOS, CharTokenizer, MGTokenizer
+from musicgen.tokenizer import EOS, PAD, SOS, CharTokenizer, MGTokenizer
 from tests.conftest import TUNES
 
 

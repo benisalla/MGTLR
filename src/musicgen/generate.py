@@ -1,6 +1,6 @@
 """Generate tunes with a trained checkpoint.
 
-    mgtlr-generate --checkpoint checkpoints/transformer/best.pt --num-tunes 3 --midi
+    musicgen-generate --checkpoint checkpoints/transformer/best.pt --num-tunes 3 --midi
 
 The prompt is the start of an ABC tune (often just its header); the model
 continues it until it writes <EOS> or reaches --max-new-tokens. Each tune is
@@ -15,11 +15,11 @@ from pathlib import Path
 
 import torch
 
-from mgtlr.checkpoint import load_checkpoint
-from mgtlr.models import LanguageModel
-from mgtlr.music import abc_to_midi, extract_tunes
-from mgtlr.tokenizer import SOS, MGTokenizer
-from mgtlr.train import resolve_device
+from musicgen.checkpoint import load_checkpoint
+from musicgen.models import LanguageModel
+from musicgen.music import abc_to_midi, extract_tunes
+from musicgen.tokenizer import SOS, MGTokenizer
+from musicgen.train import resolve_device
 
 logger = logging.getLogger(__name__)
 

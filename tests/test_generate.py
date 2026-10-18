@@ -6,12 +6,12 @@ from pathlib import Path
 import pytest
 import torch
 
-from mgtlr.checkpoint import load_checkpoint, save_checkpoint
-from mgtlr.config import make_model_config
-from mgtlr.generate import generate_abc, main
-from mgtlr.models import build_model
-from mgtlr.music import abc_to_midi, extract_tunes
-from mgtlr.tokenizer import EOS, PAD, SOS
+from musicgen.checkpoint import load_checkpoint, save_checkpoint
+from musicgen.config import make_model_config
+from musicgen.generate import generate_abc, main
+from musicgen.models import build_model
+from musicgen.music import abc_to_midi, extract_tunes
+from musicgen.tokenizer import EOS, PAD, SOS
 from tests.conftest import TUNES
 
 LEGACY_DIR = Path(__file__).resolve().parents[1] / "legacy"

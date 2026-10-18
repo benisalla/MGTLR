@@ -1,6 +1,6 @@
 """Train the BPE tokenizer on ABC tunes.
 
-    mgtlr-tokenizer --vocab-size 856 --sample-tunes 50000
+    musicgen-tokenizer --vocab-size 856 --sample-tunes 50000
 
 Writes ``<output>.model`` (used by training) and ``<output>.vocab`` (readable).
 """
@@ -11,9 +11,9 @@ import argparse
 import time
 from pathlib import Path
 
-from mgtlr.config import DEFAULT_DATA_DIR, DEFAULT_TOKENIZER_PATH, DataConfig
-from mgtlr.data import format_corpus, load_tunes, resolve_split_file
-from mgtlr.tokenizer import SOS, MGTokenizer
+from musicgen.config import DEFAULT_DATA_DIR, DEFAULT_TOKENIZER_PATH, DataConfig
+from musicgen.data import format_corpus, load_tunes, resolve_split_file
+from musicgen.tokenizer import SOS, MGTokenizer
 
 
 def main(argv: list[str] | None = None) -> None:

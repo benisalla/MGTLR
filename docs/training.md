@@ -19,26 +19,26 @@ are downloaded into `data/`. The tokenized corpus is cached in `data/cache/`
 Your own tunes: any JSON list of `{"abc notation": "X:1\n..."}` records works:
 
 ```bash
-mgtlr-train --train-file my_train.json --val-file my_val.json
+musicgen-train --train-file my_train.json --val-file my_val.json
 ```
 
 ## 2. Tokenizer
 
 ```bash
-mgtlr-tokenizer --vocab-size 856 --sample-tunes 20000    # ~1 min on CPU
+musicgen-tokenizer --vocab-size 856 --sample-tunes 20000    # ~1 min on CPU
 ```
 
 Writes `tokenizer/mgt_tokenizer.model` (+ a readable `.vocab`). If you skip
-this step, `mgtlr-train` trains the same tokenizer automatically. All models
+this step, `musicgen-train` trains the same tokenizer automatically. All models
 that should be compared must use the same tokenizer.
 
 ## 3. Train
 
 ```bash
-mgtlr-train --model transformer      # -> checkpoints/transformer/
-mgtlr-train --model lstm             # -> checkpoints/lstm/
-mgtlr-train --model rnn              # -> checkpoints/rnn/
-mgtlr-train --model lstm --impl torch   # cuDNN LSTM, much faster than the from-scratch cells
+musicgen-train --model transformer      # -> checkpoints/transformer/
+musicgen-train --model lstm             # -> checkpoints/lstm/
+musicgen-train --model rnn              # -> checkpoints/rnn/
+musicgen-train --model lstm --impl torch   # cuDNN LSTM, much faster than the from-scratch cells
 ```
 
 Each preset comes from the original project (`config.py`). Any flag overrides it:
@@ -62,7 +62,7 @@ Each preset comes from the original project (`config.py`). Any flag overrides it
 Other flags: `--grad-accum-steps`, `--grad-clip`, `--label-smoothing`,
 `--dropout`, `--precision {auto,fp32,bf16,fp16}`, `--device`,
 `--eval-every`, `--eval-batches`, `--log-every`, `--seed`,
-`--train-limit N` (first N tunes only). See `mgtlr-train --help`.
+`--train-limit N` (first N tunes only). See `musicgen-train --help`.
 
 ### Output
 
@@ -77,7 +77,7 @@ checkpoints/transformer/
 ### Resume
 
 ```bash
-mgtlr-train --model transformer --resume checkpoints/transformer/last.pt --max-steps 40000
+musicgen-train --model transformer --resume checkpoints/transformer/last.pt --max-steps 40000
 ```
 
 Weights, optimizer state, step count, best loss and history continue. Keep

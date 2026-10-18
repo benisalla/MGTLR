@@ -27,8 +27,8 @@ import math
 import torch
 from torch import nn
 
-from mgtlr.config import ModelConfig
-from mgtlr.models.base import LanguageModel, ModelOutput, lm_loss
+from musicgen.config import ModelConfig
+from musicgen.models.base import LanguageModel, ModelOutput, lm_loss
 
 LSTMState = tuple[torch.Tensor, torch.Tensor]  # (h, c), each [n_layers, B, H]
 

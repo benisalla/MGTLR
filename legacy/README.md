@@ -1,10 +1,10 @@
 # Legacy code (reference only)
 
-The original version of MGTLR, kept exactly as it was: the `music_generator/`
+The original version of MusicGen, kept exactly as it was: the `music_generator/`
 package, its Poetry `pyproject.toml` and `poetry.lock`. It is **not
-maintained**; use `src/mgtlr/` (see the main README).
+maintained**; use `src/musicgen/` (see the main README).
 
-Known problems in this version, fixed in `src/mgtlr/`:
+Known problems in this version, fixed in `src/musicgen/`:
 
 - several packages had no `__init__.py`, so imports such as
   `from music_generator.model.TRF import MGTransformer` failed;
@@ -20,5 +20,5 @@ Known problems in this version, fixed in `src/mgtlr/`:
 - the Streamlit model selector was not connected to any model.
 
 Checkpoints and tokenizers trained with this code still load in the new
-package (`mgtlr-generate --checkpoint mg_chpts_v1.pth --tokenizer mgt_tokenizer_v1.model`);
+package (`musicgen-generate --checkpoint mg_chpts_v1.pth --tokenizer mgt_tokenizer_v1.model`);
 a unit test checks this.

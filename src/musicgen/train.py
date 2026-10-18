@@ -8,7 +8,7 @@ The file reads top to bottom:
 4. train()        - the loop: takes ready-made objects, easy to test
 5. CLI            - main() builds everything from command-line flags
 
-Run it with:  mgtlr-train --model transformer      (or lstm / rnn; see --help)
+Run it with:  musicgen-train --model transformer      (or lstm / rnn; see --help)
 """
 
 from __future__ import annotations
@@ -27,8 +27,8 @@ from typing import Any
 import torch
 from torch.optim import AdamW
 
-from mgtlr.checkpoint import save_checkpoint
-from mgtlr.config import (
+from musicgen.checkpoint import save_checkpoint
+from musicgen.config import (
     ACTIVATIONS,
     DEFAULT_DATA_DIR,
     DEFAULT_TOKENIZER_PATH,
@@ -40,9 +40,9 @@ from mgtlr.config import (
     make_model_config,
     make_train_config,
 )
-from mgtlr.data import TokenStream, build_streams, format_corpus, load_tunes, resolve_split_file
-from mgtlr.models import LanguageModel, build_model
-from mgtlr.tokenizer import MGTokenizer
+from musicgen.data import TokenStream, build_streams, format_corpus, load_tunes, resolve_split_file
+from musicgen.models import LanguageModel, build_model
+from musicgen.tokenizer import MGTokenizer
 
 logger = logging.getLogger(__name__)
 

@@ -15,9 +15,9 @@ from typing import Any
 
 import torch
 
-from mgtlr.config import ModelConfig, config_to_dict, model_config_from_dict
-from mgtlr.models import LanguageModel, build_model
-from mgtlr.tokenizer import MGTokenizer
+from musicgen.config import ModelConfig, config_to_dict, model_config_from_dict
+from musicgen.models import LanguageModel, build_model
+from musicgen.tokenizer import MGTokenizer
 
 FORMAT_VERSION = 1
 
@@ -87,7 +87,7 @@ def load_checkpoint(
             raise ValueError("legacy checkpoints need tokenizer_path (the .model file)")
         tokenizer = MGTokenizer.load(tokenizer_path)
     else:
-        raise ValueError(f"{path} is not an MGTLR checkpoint")
+        raise ValueError(f"{path} is not an MusicGen checkpoint")
     if tokenizer_path is not None and "model_config" in raw:
         tokenizer = MGTokenizer.load(tokenizer_path)
     model = build_model(config)

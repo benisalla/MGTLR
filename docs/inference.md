@@ -3,7 +3,7 @@
 ## Command line
 
 ```bash
-mgtlr-generate --checkpoint checkpoints/transformer/best.pt --num-tunes 3 --midi
+musicgen-generate --checkpoint checkpoints/transformer/best.pt --num-tunes 3 --midi
 ```
 
 Each tune is printed and saved as `outputs/tune_01.abc`, `outputs/tune_01.mid`, ...
@@ -23,22 +23,22 @@ The prompt sets the style. The header fields matter most: `M:` metre (6/8 jig,
 4/4 reel, 3/4 waltz), `K:` key, `L:` default note length.
 
 ```bash
-mgtlr-generate --checkpoint checkpoints/lstm/best.pt \
+musicgen-generate --checkpoint checkpoints/lstm/best.pt \
     --prompt 'X:1\nL:1/8\nM:3/4\nK:Amin\nA,B,CE |' --temperature 0.8 --seed 0
 ```
 
 Checkpoints from the original project load too:
 
 ```bash
-mgtlr-generate --checkpoint mg_chpts_v1.pth --tokenizer mgt_tokenizer_v1.model
+musicgen-generate --checkpoint mg_chpts_v1.pth --tokenizer mgt_tokenizer_v1.model
 ```
 
 ## Python
 
 ```python
-from mgtlr.checkpoint import load_checkpoint
-from mgtlr.generate import generate_abc
-from mgtlr.music import abc_to_midi
+from musicgen.checkpoint import load_checkpoint
+from musicgen.generate import generate_abc
+from musicgen.music import abc_to_midi
 
 loaded = load_checkpoint("checkpoints/transformer/best.pt")
 abc = generate_abc(loaded.model, loaded.tokenizer, "X:1\nM:6/8\nK:D\n", temperature=0.9, seed=0)
@@ -67,7 +67,7 @@ and `ffmpeg` for MP3.
 ```bash
 sudo apt install fluidsynth fluid-soundfont-gm ffmpeg     # Debian / Ubuntu
 brew install fluid-synth ffmpeg                          # macOS (+ any .sf2 file)
-export MGTLR_SOUNDFONT=/path/to/FluidR3_GM.sf2           # if not found automatically
+export MUSICGEN_SOUNDFONT=/path/to/FluidR3_GM.sf2           # if not found automatically
 ```
 
 Without them, the app still shows the ABC and the MIDI file.

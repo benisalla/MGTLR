@@ -4,11 +4,11 @@ from dataclasses import replace
 import pytest
 import torch
 
-from mgtlr.checkpoint import load_checkpoint
-from mgtlr.config import TrainConfig, make_model_config, make_train_config
-from mgtlr.data import TokenStream, encode_corpus, format_corpus
-from mgtlr.models import build_model
-from mgtlr.train import (
+from musicgen.checkpoint import load_checkpoint
+from musicgen.config import TrainConfig, make_model_config, make_train_config
+from musicgen.data import TokenStream, encode_corpus, format_corpus
+from musicgen.models import build_model
+from musicgen.train import (
     BEST_CHECKPOINT,
     HISTORY_FILE,
     LAST_CHECKPOINT,
@@ -115,7 +115,7 @@ def test_seq_len_must_fit_transformer(tmp_path, tokenizer):
 
 
 def test_cli_end_to_end(tmp_path, dataset_dir, tokenizer):
-    """mgtlr-train with an existing tokenizer file and the --overfit sanity mode."""
+    """musicgen-train with an existing tokenizer file and the --overfit sanity mode."""
     tok_path = tokenizer.save(tmp_path / "tok")
     out = tmp_path / "cli"
     main(

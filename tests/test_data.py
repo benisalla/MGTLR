@@ -1,9 +1,9 @@
 import pytest
 import torch
 
-from mgtlr.config import DataConfig
-from mgtlr.data import TokenStream, build_streams, encode_corpus, format_corpus, load_tunes
-from mgtlr.tokenizer import EOS, SOS
+from musicgen.config import DataConfig
+from musicgen.data import TokenStream, build_streams, encode_corpus, format_corpus, load_tunes
+from musicgen.tokenizer import EOS, SOS
 from tests.conftest import TUNES
 
 

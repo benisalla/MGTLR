@@ -3,8 +3,8 @@
 import pytest
 import torch
 
-from mgtlr.config import make_model_config
-from mgtlr.models import MGLSTM, MGRNN, MGTransformer, build_model, sample_next
+from musicgen.config import make_model_config
+from musicgen.models import MGLSTM, MGRNN, MGTransformer, build_model, sample_next
 
 VOCAB = 40
 VARIANTS = [

@@ -4,8 +4,8 @@ import json
 
 import pytest
 
-from mgtlr.data import format_corpus
-from mgtlr.tokenizer import MGTokenizer
+from musicgen.data import format_corpus
+from musicgen.tokenizer import MGTokenizer
 
 TUNES = [
     "X:1\nL:1/8\nM:6/8\nK:G\nGAB cBA | BGE EDE | GAB cBA | BGE E3 :|",

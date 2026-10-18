@@ -14,7 +14,7 @@ import torch
 import torch.nn.functional as F
 from torch import nn
 
-from mgtlr.config import ModelConfig
+from musicgen.config import ModelConfig
 
 IGNORE_INDEX = -1  # target value excluded from the loss (same as the original code)
 

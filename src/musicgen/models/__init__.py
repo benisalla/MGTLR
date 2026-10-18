@@ -1,9 +1,9 @@
 """The three music language models and a factory to build one from its config."""
 
-from mgtlr.config import ModelConfig
-from mgtlr.models.base import IGNORE_INDEX, LanguageModel, ModelOutput, sample_next
-from mgtlr.models.recurrent import MGLSTM, MGRNN
-from mgtlr.models.transformer import MGTransformer
+from musicgen.config import ModelConfig
+from musicgen.models.base import IGNORE_INDEX, LanguageModel, ModelOutput, sample_next
+from musicgen.models.recurrent import MGLSTM, MGRNN
+from musicgen.models.transformer import MGTransformer
 
 MODEL_CLASSES: dict[str, type[LanguageModel]] = {
     "transformer": MGTransformer,

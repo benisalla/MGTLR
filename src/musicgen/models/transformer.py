@@ -6,7 +6,7 @@
                   -> LayerNorm -> lm_head (tied with the token embedding) -> logits [B, T, V]
 
 Parameter names are the same as in the original code, so checkpoints trained
-with the legacy scripts load into this class (see ``mgtlr.checkpoint``).
+with the legacy scripts load into this class (see ``musicgen.checkpoint``).
 """
 
 from __future__ import annotations
@@ -17,8 +17,8 @@ import torch
 import torch.nn.functional as F
 from torch import nn
 
-from mgtlr.config import ModelConfig
-from mgtlr.models.base import LanguageModel, ModelOutput, lm_loss
+from musicgen.config import ModelConfig
+from musicgen.models.base import LanguageModel, ModelOutput, lm_loss
 
 
 class MGLayerNorm(nn.Module):

@@ -1,6 +1,6 @@
 import pytest
 
-from mgtlr.config import (
+from musicgen.config import (
     MODEL_PRESETS,
     DataConfig,
     ModelConfig,

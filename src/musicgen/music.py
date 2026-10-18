@@ -17,7 +17,7 @@ from pathlib import Path
 
 import regex as re
 
-from mgtlr.tokenizer import EOS, PAD, SOS
+from musicgen.tokenizer import EOS, PAD, SOS
 
 # a tune starts at <SOS> and ends at <EOS>, at the next <SOS> or at the end of the text
 _TUNE = re.compile(
@@ -61,7 +61,7 @@ def abc_to_midi(abc: str, midi_path: str | Path) -> Path:
 
 
 def find_soundfont(explicit: str | Path | None = None) -> Path | None:
-    for candidate in (explicit, os.environ.get("MGTLR_SOUNDFONT"), *SOUNDFONT_CANDIDATES):
+    for candidate in (explicit, os.environ.get("MUSICGEN_SOUNDFONT"), *SOUNDFONT_CANDIDATES):
         if candidate and Path(candidate).is_file():
             return Path(candidate)
     return None
@@ -71,7 +71,7 @@ def midi_to_wav(midi_path: str | Path, soundfont: str | Path | None = None) -> P
     """Render MIDI to WAV with FluidSynth (needs the fluidsynth binary + a SoundFont)."""
     sf2 = find_soundfont(soundfont)
     if sf2 is None:
-        raise FileNotFoundError("no SoundFont found: pass one or set MGTLR_SOUNDFONT")
+        raise FileNotFoundError("no SoundFont found: pass one or set MUSICGEN_SOUNDFONT")
     if shutil.which("fluidsynth") is None:
         raise FileNotFoundError("the fluidsynth program is not installed")
     wav_path = Path(midi_path).with_suffix(".wav")

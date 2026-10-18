@@ -26,7 +26,7 @@ tokenizer and tiny models.
 | `test_data.py` | tunes are framed `<SOS>…<EOS>`; batches are contiguous windows with targets shifted by one; seeded batches are reproducible; the token cache; `--overfit` uses the same tunes for train and validation |
 | `test_models.py` | for all 5 variants (Transformer, LSTM and RNN x scratch/torch): output shapes, loss ≈ ln(V) at init, **causality** (future tokens cannot change past logits), `generate()` length / prompt / mode restore, and each variant **memorises one batch**; recurrent state carries context across calls; **the hand-written RNN/LSTM cells equal `nn.RNN` / `nn.LSTM`** (weights copied across, with and without bias); weights are shared across time steps; weight tying; early stop at `<EOS>`; greedy and top-k sampling |
 | `test_train.py` | warmup + cosine LR values; optimizer groups (no decay on norms/biases, tied weight counted once); a short run of **each model** lowers the loss and writes `last.pt` / `best.pt` / `history.json` / curves; the reloaded checkpoint gives identical logits; **resume** continues the step count; gradient accumulation; the CLI end to end, including auto-training a missing tokenizer |
-| `test_generate.py` | checkpoint round trip; **a checkpoint saved by the legacy `MGTransformer` loads and gives the same logits**; tune extraction from generated text; seeded generation is reproducible; the `mgtlr-generate` CLI writes clean `.abc` files; ABC -> MIDI |
+| `test_generate.py` | checkpoint round trip; **a checkpoint saved by the legacy `MGTransformer` loads and gives the same logits**; tune extraction from generated text; seeded generation is reproducible; the `musicgen-generate` CLI writes clean `.abc` files; ABC -> MIDI |
 | `test_app.py` | the Streamlit app runs headless; a missing checkpoint and invalid generated ABC show messages instead of crashing (skipped if streamlit is not installed) |
 
 ## 2. Overfit sanity check (real data)
@@ -38,7 +38,7 @@ because the 8 tunes are just 1,055 tokens.
 
 ```bash
 for m in transformer lstm rnn; do
-  mgtlr-train --model $m --overfit 8 --max-steps 300 --batch-size 8 --seq-len 128 \
+  musicgen-train --model $m --overfit 8 --max-steps 300 --batch-size 8 --seq-len 128 \
       --lr 2e-3 --warmup-steps 20 --eval-every 100 --log-every 25 --eval-batches 5 \
       --output-dir checkpoints/overfit-$m
 done
@@ -81,8 +81,8 @@ That needs a full training run (GPU recommended) and listening to the results.
 ## 3. End-to-end checks
 
 ```bash
-mgtlr-tokenizer --sample-tunes 20000                       # ~1 min, 859-token vocabulary
-mgtlr-generate --checkpoint checkpoints/overfit-rnn/best.pt --midi --temperature 0.5
+musicgen-tokenizer --sample-tunes 20000                       # ~1 min, 859-token vocabulary
+musicgen-generate --checkpoint checkpoints/overfit-rnn/best.pt --midi --temperature 0.5
 streamlit run app/main.py                                  # pick RNN, set the checkpoint path, Generate
 ```
 

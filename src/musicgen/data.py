@@ -26,8 +26,8 @@ from pathlib import Path
 import numpy as np
 import torch
 
-from mgtlr.config import DataConfig
-from mgtlr.tokenizer import EOS, SOS, MGTokenizer
+from musicgen.config import DataConfig
+from musicgen.tokenizer import EOS, SOS, MGTokenizer
 
 logger = logging.getLogger(__name__)
 

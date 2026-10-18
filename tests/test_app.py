@@ -4,9 +4,9 @@ from pathlib import Path
 
 import pytest
 
-from mgtlr.checkpoint import save_checkpoint
-from mgtlr.config import make_model_config
-from mgtlr.models import build_model
+from musicgen.checkpoint import save_checkpoint
+from musicgen.config import make_model_config
+from musicgen.models import build_model
 
 pytest.importorskip("streamlit")
 from streamlit.testing.v1 import AppTest
